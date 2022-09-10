@@ -116,7 +116,7 @@ int LinkedList::localiza(Object* item){
 	Nodo* temp = NULL;
 	temp = inicio;
 	for (int i=1; i<= n; i++){
-		if (temp->getItem().equals(item))
+		if (temp->getItem()->equals(item))
 			return i;
 		else
 			temp = temp->getSiguiente();
@@ -126,7 +126,7 @@ int LinkedList::localiza(Object* item){
 
 Object* LinkedList::primero(){
 	if (n >= 1)
-		return inicio.getItem();
+		return inicio->getItem();
 	else	
 		return NULL;
 }
