@@ -18,7 +18,7 @@ class TDALista
 		virtual bool inserta(Object*,int)=0;
 		virtual Object* siguiente(int)=0;
 		virtual Object* anterior(int)=0;
-		virtual void append(Object*)=0;
+		//virtual void append(Object*)=0;
 		virtual void imprimir_lista()=0;
 		virtual bool suprime(int)=0;
 		virtual Object* recupera(int)=0;

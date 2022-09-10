@@ -1,4 +1,6 @@
 #include "ArrayList.h"
+#include <iostream>
+using namespace std;
 
 #define NULL 0
 
@@ -24,6 +26,15 @@ ArrayList::~ArrayList()
 	delete[] array;
 }
 
+void ArrayList::anula(){
+	
+	if (n<0){
+		for (int i=n; i < n; i--)
+			suprime(i);	
+	}
+}
+
+
  bool ArrayList::inserta(Object* item, int posicion){ 
 	if (item == nullptr) {
 		return false;
@@ -41,6 +52,22 @@ ArrayList::~ArrayList()
 		return false;
 }
 
+Object* ArrayList::siguiente(int posicion){
+	return recupera(posicion+1);
+}
+
+Object* ArrayList::anterior(int posicion){
+	return recupera(posicion-1);
+}
+
+void ArrayList::imprimir(Object* item){
+}
+
+/*void ArrayList::imprimir_lista(){
+	for (int i=0; i < n; i++)
+		imprimir(array[i]);  
+}*/
+
 bool ArrayList::suprime(int posicion){ 
 	if (n>=1){  
 		Object* item=NULL;
@@ -55,4 +82,37 @@ bool ArrayList::suprime(int posicion){
 	}	
 	else	
 		return false;
+}
+
+Object* ArrayList::recupera(int posicion)
+{
+	if (posicion>=1 && posicion <= n)
+		return array[posicion-1];
+	else
+		return NULL;
+}
+
+int ArrayList::localiza(Object* item)
+{
+	for (int i=1; i <= n; i++){
+		if (item == array[i-1])
+			return i;
+	}
+	return -1;
+}
+
+Object* ArrayList::primero()
+{
+	if (n >= 1)
+		return array[0];
+	else 
+		return NULL;
+}
+
+bool ArrayList::vacia()
+{
+	if (n>0)
+		return false;
+	else
+		return true;		
 }

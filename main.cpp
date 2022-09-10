@@ -4,11 +4,15 @@ using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 #include "TDALista.h"
+#include "Alumno.h"
 #include "ArrayList.h"
 
 int main(int argc, char** argv) {
 	
 	int num;
+	TDALista* lista = NULL;
+	string nombre;
+	string cuenta;
 	
 	do{
 		cout << "\nMenú Principal" 
@@ -29,6 +33,11 @@ int main(int argc, char** argv) {
 					
 					if (num == 1){
 						
+						if (lista)
+							delete lista;
+							
+						lista = new ArrayList();	
+							
 						do{
 							cout << "\nOperaciones de ArrayList"
 							<< "\n1. Insertar Elemento"
@@ -42,6 +51,63 @@ int main(int argc, char** argv) {
 							<< "\n9. Borrar todos los Elementos (Anula)"
 							<< "\n10. Regresar al Menú Principal" << endl;
 							cin >> num;
+							
+							switch (num){
+								case 1:
+								{
+									cout << "\n1. Insertar Elemento" << endl;
+									cout << "\nIngrese el nombre:" << endl;
+									cin >> nombre;
+									cout << "\nIngrese la cuenta: " << endl;
+									cin >> cuenta;
+									Alumno* alumno = new Alumno(nombre, cuenta);
+									lista->inserta(alumno, 1); 
+								}
+									break;
+								case 2:
+								{
+									cout << "\n2. Imprimir Elementos" << endl;
+									break;
+								}									
+								case 3:
+								{
+									cout << "\n3. Buscar Elemento" << endl;
+									break;	
+								}
+									
+								case 4:
+								{
+									cout << "\n4. Borrar Elemento" << endl;
+									break;	
+								}
+									
+								case 5:
+								{
+									cout << "\n5. Ver si está vacía" << endl;
+									break;
+								}
+								case 6:
+								{
+									cout << "\n6. Obtener Elemento por Posición" << endl;
+									break;
+								}									
+								case 7:
+								{
+									cout << "\n7. Obtener Siguiente" << endl;
+									break;
+								}								
+								case 8:
+								{
+									cout << "\n8. Obtener Anterior" << endl;
+									break;
+								}	
+								case 9:
+								{
+									cout << "\n9. Borrar todos los Elementos (Anula)" << endl;
+									break;
+								}
+							}
+							
 						}while(num != 10);
 						 	
 					}else if (num == 2){
@@ -58,6 +124,58 @@ int main(int argc, char** argv) {
 							<< "\n9. Borrar todos los Elementos (Anula)"
 							<< "\n10. Regresar al Menú Principal" << endl;
 							cin >> num;
+							
+							switch (num){
+							case 1:
+								{
+									cout << "\n1. Insertar Elemento" << endl;
+									
+								}
+									break;
+								case 2:
+								{
+									cout << "\n2. Imprimir Elementos" << endl;
+									break;
+								}									
+								case 3:
+								{
+									cout << "\n3. Buscar Elemento" << endl;
+									break;	
+								}
+									
+								case 4:
+								{
+									cout << "\n4. Borrar Elemento" << endl;
+									break;	
+								}
+									
+								case 5:
+								{
+									cout << "\n5. Ver si está vacía" << endl;
+									break;
+								}
+								case 6:
+								{
+									cout << "\n6. Obtener Elemento por Posición" << endl;
+									break;
+								}									
+								case 7:
+								{
+									cout << "\n7. Obtener Siguiente" << endl;
+									break;
+								}								
+								case 8:
+								{
+									cout << "\n8. Obtener Anterior" << endl;
+									break;
+								}	
+								case 9:
+								{
+									cout << "\n9. Borrar todos los Elementos (Anula)" << endl;
+									break;
+								}
+							}
+							
 						}while(num != 10);
 					}
 				}while(num != 3);

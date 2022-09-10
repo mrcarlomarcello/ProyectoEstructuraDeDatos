@@ -15,7 +15,7 @@ class Nodo
 		Nodo* getSiguiente();
 		Nodo* getAnterior();
 		
-		//TODO: Hacer gets/sets
+		//TO DO: Hacer gets/sets
 		
 	protected:
 		Nodo* siguiente;

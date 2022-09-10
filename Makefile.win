@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o ArrayList.o Object.o TDALista.o LinkedList.o Nodo.o
-LINKOBJ  = main.o ArrayList.o Object.o TDALista.o LinkedList.o Nodo.o
+OBJ      = main.o ArrayList.o Object.o TDALista.o LinkedList.o Nodo.o Alumno.o Simbolo.o
+LINKOBJ  = main.o ArrayList.o Object.o TDALista.o LinkedList.o Nodo.o Alumno.o Simbolo.o
 LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
@@ -41,3 +41,9 @@ LinkedList.o: LinkedList.cpp
 
 Nodo.o: Nodo.cpp
 	$(CPP) -c Nodo.cpp -o Nodo.o $(CXXFLAGS)
+
+Alumno.o: Alumno.cpp
+	$(CPP) -c Alumno.cpp -o Alumno.o $(CXXFLAGS)
+
+Simbolo.o: Simbolo.cpp
+	$(CPP) -c Simbolo.cpp -o Simbolo.o $(CXXFLAGS)
