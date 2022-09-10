@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
 									cout << "\nIngrese la cuenta: " << endl;
 									cin >> cuenta;
 									Alumno* alumno = new Alumno(nombre, cuenta);
-									lista->inserta(alumno, 1); 
+									//lista->inserta(alumno, posicion); 
 								}
 									break;
 								case 2:

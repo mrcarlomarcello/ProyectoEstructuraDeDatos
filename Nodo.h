@@ -12,6 +12,7 @@ class Nodo
 		void setSiguiente(Nodo*);
 		void setAnterior(Nodo*);
 		void setItem(Object*);
+		Object* getItem();
 		Nodo* getSiguiente();
 		Nodo* getAnterior();
 		
