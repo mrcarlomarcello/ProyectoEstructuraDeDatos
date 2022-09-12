@@ -15,7 +15,7 @@ class ArrayList : public TDALista
 		virtual Object* anterior(int);
 		//virtual void append(Object*);
 		void imprimir(Object*);
-		//virtual void imprimir_lista(); 
+		virtual void imprimir_lista(); 
 		virtual bool suprime(int);
 		virtual Object* recupera(int);
 		virtual int localiza(Object*);

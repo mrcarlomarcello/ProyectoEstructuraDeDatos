@@ -4,6 +4,10 @@ using namespace std;
 
 #define NULL 0
 
+void imprimir(Object* item){
+	cout<<(item->toString());
+}
+
 ArrayList::ArrayList()
 {
 	n=0;
@@ -63,10 +67,10 @@ Object* ArrayList::anterior(int posicion){
 void ArrayList::imprimir(Object* item){
 }
 
-/*void ArrayList::imprimir_lista(){
+void ArrayList::imprimir_lista(){
 	for (int i=0; i < n; i++)
 		imprimir(array[i]);  
-}*/
+}
 
 bool ArrayList::suprime(int posicion){ 
 	if (n>=1){  

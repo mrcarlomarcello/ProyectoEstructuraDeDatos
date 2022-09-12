@@ -1,6 +1,7 @@
 #include "LinkedList.h"
-
+#include "iostream"
 #define NULL 0
+using namespace std;
 
 LinkedList::LinkedList()
 {
@@ -67,7 +68,12 @@ void LinkedList::append(Object* item){
 	n++;
 }
 
-//void LinkedList::imprimir_lista()
+void LinkedList::imprimir_lista(){
+	Nodo* temp = inicio;
+	for(int i=1; i<=n; i++){
+		cout<<(temp->getItem()->toString());
+	}
+}
 
 bool LinkedList::suprime(int posicion){
 	if (posicion>=1 && posicion<=n){
