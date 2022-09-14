@@ -1,3 +1,6 @@
+#ifndef ALUMNO_H
+#define ALUMNO_H
+
 #include "Object.h"
 
 class Alumno : public Object
@@ -17,3 +20,5 @@ class Alumno : public Object
 		string cuenta;
 		string nombre;	
 };
+
+#endif //ALUMNO_H

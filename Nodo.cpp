@@ -1,6 +1,6 @@
 #include "Nodo.h"
 
-#define NULL 0
+//#define NULL 0
 
 Nodo::Nodo()
 {

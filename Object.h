@@ -12,4 +12,4 @@ class Object
 	protected:
 };
 
-#endif
+#endif //OBJECT_H
