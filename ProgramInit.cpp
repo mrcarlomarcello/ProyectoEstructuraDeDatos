@@ -14,7 +14,9 @@ ProgramInit::ProgramInit(){
     TDALista* lista = NULL;
     string nombre;
     string cuenta;
-
+    //prueba
+    cout << "Hello World!\n" << endl;
+    
     do{
         cout << "\nMenú Principal"
              << "\n1. Trabajar con Listas"
@@ -61,7 +63,7 @@ ProgramInit::ProgramInit(){
                                     cin >> nombre;
                                     cout << "\nIngrese la cuenta: " << endl;
                                     cin >> cuenta;
-                                    //Alumno* alumno = new Alumno(nombre, cuenta);
+                                    Alumno* alumno = new Alumno(nombre, cuenta);
                                     //lista->inserta(alumno, posicion);
                                 }
                                     break;

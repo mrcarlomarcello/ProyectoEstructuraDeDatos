@@ -8,8 +8,8 @@ using std::string;
 class Alumno : public Object
 {
 	public:
-		//Alumno();
-		//Alumno(string, string);
+		Alumno();
+		Alumno(string, string);
 
         virtual bool equals(Object*);
         virtual string toString();
