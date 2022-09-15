@@ -1,16 +1,20 @@
 #include "Alumno.h"
 
+/**
 Alumno::Alumno()
 {
-	nombre = "";
-	cuenta = "";	
+	this->nombre = "";
+	this->cuenta = "";
 }
+**/
 
-Alumno::Alumno(string nombre, string cuenta)
+/**
+Alumno::Alumno(string _nombre, string _cuenta)
 {
-	nombre = this->nombre;
-	cuenta = this->cuenta;	
+	this->nombre = _nombre;
+	this->cuenta = _cuenta;
 }
+**/
 
 string Alumno::getCuenta()
 {

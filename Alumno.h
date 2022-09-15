@@ -2,15 +2,17 @@
 #define ALUMNO_H
 
 #include "Object.h"
+#include <string>
+using std::string;
 
 class Alumno : public Object
 {
 	public:
-		Alumno();
-		Alumno(string, string);
-		
-		virtual bool equals(Object*);
-		virtual string toString();
+		//Alumno();
+		//Alumno(string, string);
+
+        virtual bool equals(Object*);
+        virtual string toString();
 		
 		virtual string getCuenta();
 		virtual string getNombre();
