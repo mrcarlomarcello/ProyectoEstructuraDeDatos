@@ -61,6 +61,8 @@ ProgramInit::ProgramInit(){
                                     cin >> nombre;
                                     cout << "\nIngrese la cuenta: " << endl;
                                     cin >> cuenta;
+                                    cout << "AQUI HAY UN ERROR !!! " << endl;
+									//<-----arreglar esto
                                     //Alumno* alumno = new Alumno(nombre, cuenta);
                                     //lista->inserta(alumno, posicion);
                                 }
