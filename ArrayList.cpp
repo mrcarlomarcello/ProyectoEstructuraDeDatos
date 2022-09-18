@@ -45,8 +45,9 @@ void ArrayList::anula(){
 	}
 	else if (posicion>=1 && posicion<=n+1){  //1. Validar rango
 		if (posicion <= n){ //1.1 determinar si hay que hacer corrimientos
-			for (int i=n; i >= posicion; i--)
-				array[i+1] = array[i];   //hacer corrimientos	
+			for (int i=n+1; i >= posicion; i--){
+				array[i] = array[i-1];   //hacer corrimientos	
+			}		
 		}
 		array[posicion-1] = item; //insertar elemento
 		n++;

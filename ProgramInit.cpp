@@ -186,6 +186,11 @@ ProgramInit::ProgramInit(){
                         }while(num != 10);
 
                     }else if (num == 2){
+                    	if (lista)
+                            delete lista;
+
+                        //lista = new LinkedList();
+                        
                         do{
                             cout << "\nOperaciones de LinkedList"
                                  << "\n1. Insertar Elemento"
