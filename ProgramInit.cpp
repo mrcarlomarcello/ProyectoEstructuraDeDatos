@@ -14,7 +14,10 @@ ProgramInit::ProgramInit(){
     TDALista* lista = NULL;
     string nombre;
     string cuenta;
-    int contador = 1;
+    int posicion;
+    int opciones;
+    bool continuar;
+    int contador = 0;
     //prueba
     //cout << "Hello World!\n" << endl;
     
@@ -41,7 +44,6 @@ ProgramInit::ProgramInit(){
                             delete lista;
 
                         lista = new ArrayList();
-                        contador = 1;
 
                         do{
                             cout << "\nOperaciones de ArrayList"
@@ -60,15 +62,40 @@ ProgramInit::ProgramInit(){
                             switch (num){
                                 case 1:
                                 {
-                                    cout << "\n1. Insertar Elemento" << endl;
-                                    cout << "\nIngrese el nombre:" << endl;
-                                    cin >> nombre;
-                                    cout << "\nIngrese la cuenta: " << endl;
-                                    cin >> cuenta;
-                                    Alumno* alumno = new Alumno(nombre, cuenta);
-                                    lista->inserta(alumno, contador);
-                                    contador++;
-                                    lista->imprimir_lista();
+                                	
+                                	do{
+                                		cout << "\n1. Insertar Elemento" << endl;
+	                                    cout << "\nIngrese el nombre:" << endl;
+	                                    cin >> nombre;
+	                                    cout << "\nIngrese la cuenta: " << endl;
+	                                    cin >> cuenta;
+	                                    cout << "\nIngrese la posicion: " << endl;
+	                                    cin >> posicion;
+	                                    Alumno* alumno = new Alumno(nombre, cuenta);
+	                                    if (lista->inserta(alumno, posicion))
+	                                    	cout << "\nInsertado con exito\n";
+	                                    else
+	                                    	cout << "\nNo se pudo insertar\n";
+	                                    
+	                                    do{
+	                                    	
+	                                    	if (contador > 0)
+	                                    		cout << "\nEsa no es una de las opciones\n";
+	                                    	cout << "¿Desea seguir insertando? 1 = Si, 2 = No: \n";
+	                                    	cin >> opciones;
+		                                    if (opciones == 1)
+		                                    	continuar = true;
+		                                    else if (opciones == 2)
+		                                    	continuar = false;
+		                                    contador++;
+	                                    	
+										}while(opciones > 2);
+										contador = 0;
+	                                    
+									}while(continuar);
+                                    
+                                    //Prueba
+                                    //lista->imprimir_lista();
                                 }
                                     break;
                                 case 2:
@@ -93,6 +120,11 @@ ProgramInit::ProgramInit(){
                                 case 5:
                                 {
                                     cout << "\n5. Ver si está vacía" << endl;
+                                    if(lista->vacia())
+                                    	cout << "La lista esta vacía\n";
+                                    else
+                                    	cout << "La lista no esta vacía\n";
+                                    	
                                     break;
                                 }
                                 case 6:
