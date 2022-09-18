@@ -21,7 +21,7 @@ bool Alumno::equals(Object* item){
 
 string Alumno::toString() {
 	string alumno;
-	alumno = "Nombre: " + nombre + "- Cuenta: " + cuenta;
+	alumno = "Nombre: " + nombre + " - Cuenta: " + cuenta;
 	return alumno;
 }
 

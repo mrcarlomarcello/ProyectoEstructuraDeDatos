@@ -108,12 +108,22 @@ ProgramInit::ProgramInit(){
                                 case 3:
                                 {
                                     cout << "\n3. Buscar Elemento" << endl;
+                                    cout << "\nIngrese el numero de cuenta del usuario: " << endl;
+                                    cin >> cuenta;
+	
+                                    //lista->localiza();
                                     break;
                                 }
 
                                 case 4:
                                 {
                                     cout << "\n4. Borrar Elemento" << endl;
+                                    cout << "\nIngrese la posicion del elemento que desea eliminar: " << endl;
+                                    cin >> posicion;
+                                    if(lista->suprime(posicion))
+                                    	cout << "\nElemento eliminado con exito" << endl;
+                                    else
+                                    	cout << "\nEl elemento no se pudo eliminar" << endl;
                                     break;
                                 }
 
@@ -130,16 +140,38 @@ ProgramInit::ProgramInit(){
                                 case 6:
                                 {
                                     cout << "\n6. Obtener Elemento por Posición" << endl;
+                                    cout << "\nIngrese la posicion del elemento que desea obtener: " << endl;
+                                    cin >> posicion;
+                                    if(lista->recupera(posicion) != NULL){
+                                    	cout << "\nElemento:\n";
+                                    	cout << lista->recupera(posicion)->toString() << endl;
+									}
+                                    else
+                                    	cout << "\nPosicion invalida" << endl;
                                     break;
                                 }
                                 case 7:
                                 {
                                     cout << "\n7. Obtener Siguiente" << endl;
+                                    cout << "\nIngrese la posicion de un elemento para obtener su siguiente: " << endl;
+                                    cin >> posicion;
+                                    if(lista->siguiente(posicion) != NULL){
+                                    	cout << "\nElemento:\n";
+                                    	cout << lista->siguiente(posicion)->toString() << endl;
+									}else
+										cout << "\nEl espacio siguiente esta vacio" << endl;	
                                     break;
                                 }
                                 case 8:
                                 {
                                     cout << "\n8. Obtener Anterior" << endl;
+                                    cout << "\nIngrese la posicion de un elemento para obtener su anterior: " << endl;
+                                    cin >> posicion;
+                                    if(lista->anterior(posicion) != NULL){
+                                    	cout << "\nElemento:\n";
+                                    	cout << lista->anterior(posicion)->toString() << endl;
+									}else
+										cout << "\nEl espacio anterior esta vacio" << endl;	
                                     break;
                                 }
                                 case 9:
