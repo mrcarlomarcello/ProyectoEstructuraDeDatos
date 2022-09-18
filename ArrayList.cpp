@@ -32,8 +32,8 @@ ArrayList::~ArrayList()
 
 void ArrayList::anula(){
 	
-	if (n<0){
-		for (int i=n; i < n; i--)
+	if (n>0){
+		for (int i=n; i <= n; i--)
 			suprime(i);	
 	}
 }

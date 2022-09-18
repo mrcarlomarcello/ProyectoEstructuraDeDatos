@@ -177,6 +177,8 @@ ProgramInit::ProgramInit(){
                                 case 9:
                                 {
                                     cout << "\n9. Borrar todos los Elementos (Anula)" << endl;
+                                    lista->anula();
+                                    cout << "\nLista anulada correctamente" << endl;
                                     break;
                                 }
                             }
