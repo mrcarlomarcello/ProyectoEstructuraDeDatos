@@ -4,8 +4,8 @@ using namespace std;
 
 //#define NULL 0
 
-void imprimir(Object* item){
-	cout<<(item->toString());
+void ArrayList::imprimir(Object* item){
+	cout<< (item->toString()) <<endl;
 }
 
 ArrayList::ArrayList()
@@ -64,8 +64,6 @@ Object* ArrayList::anterior(int posicion){
 	return recupera(posicion-1);
 }
 
-void ArrayList::imprimir(Object* item){
-}
 
 void ArrayList::imprimir_lista(){
 	for (int i=0; i < n; i++)

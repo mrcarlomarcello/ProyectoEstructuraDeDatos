@@ -1,9 +1,1 @@
-#include "Object.h"
-
-class Simbolo
-{
-	public:
-
-	protected:
-
-};
+#include "Simbolo.h"

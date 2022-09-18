@@ -14,8 +14,9 @@ ProgramInit::ProgramInit(){
     TDALista* lista = NULL;
     string nombre;
     string cuenta;
+    int contador = 1;
     //prueba
-    cout << "Hello World!\n" << endl;
+    //cout << "Hello World!\n" << endl;
     
     do{
         cout << "\nMenú Principal"
@@ -40,6 +41,7 @@ ProgramInit::ProgramInit(){
                             delete lista;
 
                         lista = new ArrayList();
+                        contador = 1;
 
                         do{
                             cout << "\nOperaciones de ArrayList"
@@ -64,15 +66,16 @@ ProgramInit::ProgramInit(){
                                     cout << "\nIngrese la cuenta: " << endl;
                                     cin >> cuenta;
                                     Alumno* alumno = new Alumno(nombre, cuenta);
-                                    cout << "AQUI HAY UN ERROR !!! " << endl;
-									//<-----arreglar esto
-                                    //Alumno* alumno = new Alumno(nombre, cuenta);
-                                    //lista->inserta(alumno, posicion);
+                                    lista->inserta(alumno, contador);
+                                    contador++;
+                                    lista->imprimir_lista();
                                 }
                                     break;
                                 case 2:
                                 {
                                     cout << "\n2. Imprimir Elementos" << endl;
+                                    lista->imprimir_lista();
+                                    
                                     break;
                                 }
                                 case 3:

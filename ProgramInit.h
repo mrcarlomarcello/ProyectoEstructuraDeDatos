@@ -7,7 +7,6 @@
 #define PROGRAMINIT_H
 
 
-
 class ProgramInit {
     public:
         ProgramInit();
