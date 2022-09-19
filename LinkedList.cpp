@@ -1,6 +1,6 @@
 #include "LinkedList.h"
 #include "iostream"
-#define NULL 0
+//#define NULL 0
 using namespace std;
 
 LinkedList::LinkedList()
