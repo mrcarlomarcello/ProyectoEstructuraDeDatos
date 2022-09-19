@@ -2,6 +2,7 @@
 #include "iostream"
 //#define NULL 0
 //probando algo para git
+//voy a agregar esto en el main y pull al origin shello
 using namespace std;
 
 LinkedList::LinkedList()
