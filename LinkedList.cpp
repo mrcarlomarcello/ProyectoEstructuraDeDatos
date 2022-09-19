@@ -58,7 +58,6 @@ Object* LinkedList::anterior(int posicion){
 	return recupera(posicion - 1);
 }
 
-
 void LinkedList::append(Object* item){
 	Nodo* temp = new Nodo();
 	temp->setItem(item);

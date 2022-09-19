@@ -19,7 +19,7 @@ ProgramInit::ProgramInit(){
     bool continuar;
     int contador = 0;
     //prueba
-    //cout << "Hello World!\n" << endl;
+    //cout << "Hello World! Compile test\n" << endl;
     
     do{
         cout << "\nMenú Principal"

@@ -3,68 +3,65 @@
 using namespace std;
 
 //#define NULL 0
-
-void ArrayList::imprimir(Object* item){
-	cout<< (item->toString()) <<endl;
-}
-
 ArrayList::ArrayList()
 {
-	n=0;
-	capacidad=10;
-	array = new Object*[capacidad];
-	for(int i=0; i<capacidad; i++)
-		array[i] = NULL;
-	
+    n=0;
+    capacidad=10;
+    array = new Object*[capacidad];
+    for(int i=0; i<capacidad; i++)
+        array[i] = NULL;
+
 }
 
 ArrayList::~ArrayList()
 {
-	//libera el contenido de las casillas
-	for(int i=0; i<capacidad; i++){
-		if(array[i]){
-			delete array[i];
-		}
-	}
-	//libera el arreglo
-	delete[] array;
+    //libera el contenido de las casillas
+    for(int i=0; i<capacidad; i++){
+        if(array[i]){
+            delete array[i];
+        }
+    }
+    //libera el arreglo
+    delete[] array;
 }
 
 void ArrayList::anula(){
-	
-	if (n>0){
-		for (int i=n; i <= n; i--)
-			suprime(i);	
-	}
+
+    if (n>0){
+        for (int i=n; i <= n; i--)
+            suprime(i);
+    }
 }
 
-
- bool ArrayList::inserta(Object* item, int posicion){ 
-	if (item == nullptr) {
-		return false;
-	}
-	else if (posicion>=1 && posicion<=n+1){  //1. Validar rango
-		if (posicion <= n){ //1.1 determinar si hay que hacer corrimientos
-			for (int i=n+1; i >= posicion; i--){
-				array[i] = array[i-1];   //hacer corrimientos	
-			}		
-		}
-		array[posicion-1] = item; //insertar elemento
-		n++;
-		return true;
-	}	
-	else	
-		return false;
+bool ArrayList::inserta(Object* item, int posicion){
+    if (item == nullptr) {
+        return false;
+    }
+    else if (posicion>=1 && posicion<=n+1){  //1. Validar rango
+        if (posicion <= n){ //1.1 determinar si hay que hacer corrimientos
+            for (int i=n+1; i >= posicion; i--){
+                array[i] = array[i-1];   //hacer corrimientos
+            }
+        }
+        array[posicion-1] = item; //insertar elemento
+        n++;
+        return true;
+    }
+    else
+        return false;
 }
 
 Object* ArrayList::siguiente(int posicion){
-	return recupera(posicion+1);
+    return recupera(posicion+1);
 }
 
 Object* ArrayList::anterior(int posicion){
-	return recupera(posicion-1);
+    return recupera(posicion-1);
 }
 
+void ArrayList::imprimir(Object* item){
+	cout<< (item->toString()) <<endl;
+}
 
 void ArrayList::imprimir_lista(){
 	for (int i=0; i < n; i++)
