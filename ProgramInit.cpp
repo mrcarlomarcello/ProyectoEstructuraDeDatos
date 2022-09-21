@@ -393,11 +393,23 @@ ProgramInit::ProgramInit(){
                                 case 2:
                                 {
                                     cout << "\n2. Desencolar (dequeue)" << endl;
+                                    
+                                    Object* dequeue = cola->saca_de_cola();
+                                    string Sdequeue = dequeue->toString();
+                                    
+                                    if (dequeue != NULL)
+                                    	cout << Sdequeue << endl;
+                                    else
+                                    	cout << "\nCola Vacia\n";
                                     break;
                                 }
                                 case 3:
                                 {
                                     cout << "\n3. Ver Frente (peek)" << endl;
+                                    if (cola->frente() != NULL)
+                                    	cout << cola->frente()->toString() << endl;
+                                    else
+                                    	cout << "\nCola Vacia\n";
                                     break;
                                 }
 

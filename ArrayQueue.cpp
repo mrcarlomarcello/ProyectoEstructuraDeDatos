@@ -8,8 +8,8 @@ using namespace std;
 
 ArrayQueue::ArrayQueue()
 {
-	inicio = 0;
-	final = 0;
+	inicio = -1;
+	final = -1;
 	n = 0;
 	capacidad = 10;
 	array = new Object*[capacidad];
@@ -40,10 +40,10 @@ void ArrayQueue::imprimir(Object* item){
 }
 		
 void ArrayQueue::imprime_cola(){
-	if (n < 0)
-		cout << "\nQueue vacio\n";
+	if (n<=0)
+		cout << "\nCola vacia\n";
 	else{
-		for(int i = inicio; i < final; i++)
+		for(int i = inicio; i <= final; i++)
 			imprimir(array[i]);
 	}
 }
@@ -57,35 +57,46 @@ void ArrayQueue::anula(){
 		
 //Dequeue
 Object* ArrayQueue::saca_de_cola(){
-	if (n<0)
+	Object* dequeue = NULL;
+	if (n>0){
+		if (inicio == final){
+			dequeue = array[final];
+			array[final] = NULL;
+			inicio = final = -1;
+			n--;
+			return dequeue;
+		}	
+		else{	
+			dequeue = array[inicio];
+			array[inicio] = NULL;
+			n--;
+			inicio++;
+			return dequeue;
+		}
+	}	
+	else
 		return NULL;
-	/*else{
-		if (inicio == final)
-			inicio = final = 0;
-		else
-			inicio++;	
-	}	*/
 }
 		
 //Queue
 void ArrayQueue::pone_en_cola(Object* item){
 	
 	if (item != nullptr) {
-        if (final == n-1)  
-        	cout << "\nQueue lleno\n";
+		if (final != -1 && final == n)  
+        	cout << "\nCola llena\n";
 	    else{
 	    	if (inicio == -1)
 	    		inicio = 0;
 	    	n++;
-	    	array[final] = item;
 	    	final++;
-	    	cout << "\nQueue realizado con exito\n";
+			array[final] = item;
+	    	cout << "\nPuesto en cola realizado con exito\n";
 	    }
 	}
 }
 		
 bool ArrayQueue::vacia(){
-	if (inicio == 0 && final == 0)
+	if (inicio == -1 && final == -1)
 		return true;
 	else
 		return false;
