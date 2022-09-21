@@ -15,9 +15,7 @@ ProgramInit::ProgramInit(){
 
     int num;
     TDALista* lista = NULL;
-    TDAPila* arrayStack;
-    Alumno* alumno;
-    Simbolo* simbolo;
+    TDAPila* arrayStack = NULL;
     string nombre;
     string cuenta;
     int posicion;
@@ -283,7 +281,6 @@ ProgramInit::ProgramInit(){
                     cin >> num;
 
                     if (num == 1){
-                        char test = '@';
                         //borra el stack
                         if (arrayStack)
                             delete arrayStack;
@@ -303,17 +300,18 @@ ProgramInit::ProgramInit(){
                             switch (num) {
                                 case 1:
                                     cout << "Vamos a push @" << endl;
-                                    simbolo = new Simbolo;
-                                    simbolo->setSimbolo(test);
+                                    Simbolo* simbolo = new Simbolo;
+                                    simbolo->setSimbolo('@');
                                     arrayStack->Push(simbolo);
-
                                     break;
+
                                 case 2:
                                     break;
+
                                 case 3:
                                     cout << "Tope:" << endl;
-                                    simbolo = arrayStack->Top();
-                                    cout << simbolo->getSimbolo() << endl;
+                                    Simbolo* sim = arrayStack->Top();
+                                    cout << sim->getSimbolo() << endl;
                                     break;
                             }
                         }while(num != 6);

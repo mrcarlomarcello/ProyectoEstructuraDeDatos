@@ -1,18 +1,18 @@
 #pragma once
 
-#include "Object.h"
-
 #ifndef SIMBOLO_H
 #define SIMBOLO_H
+
+#include "Object.h"
 
 class Simbolo : public Object
 {
 	public:
-        Simbolo();
-		virtual bool equals(Object*);
+        //Simbolo();
+		//virtual bool equals(Object*);
         //virtual string toString();
-        void setSimbolo(char);
-        char getSimbolo;
+        virtual void setSimbolo(char);
+        virtual char getSimbolo();
 
 	protected:
         char simbolo;
