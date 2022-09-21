@@ -6,12 +6,15 @@ using namespace std;
 #include "TDALista.h"
 #include "Alumno.h"
 #include "ArrayList.h"
+#include "ArrayStack.h"
+
 #include <iostream>
 
 ProgramInit::ProgramInit(){
 
     int num;
     TDALista* lista = NULL;
+    ArrayStack* arrayStack;
     string nombre;
     string cuenta;
     int posicion;
@@ -19,7 +22,7 @@ ProgramInit::ProgramInit(){
     bool continuar;
     int contador = 0;
     //prueba
-    //cout << "Hello World! Compile test\n" << endl;
+    cout << "Hello World! Compile test\n" << endl;
     
     do{
         cout << "\nMenú Principal"
@@ -96,15 +99,16 @@ ProgramInit::ProgramInit(){
                                     
                                     //Prueba
                                     //lista->imprimir_lista();
-                                }
                                     break;
+                                }
+
                                 case 2:
                                 {
                                     cout << "\n2. Imprimir Elementos" << endl;
                                     lista->imprimir_lista();
-                                    
                                     break;
                                 }
+
                                 case 3:
                                 {
                                     cout << "\n3. Buscar Elemento" << endl;
@@ -137,6 +141,7 @@ ProgramInit::ProgramInit(){
                                     	
                                     break;
                                 }
+
                                 case 6:
                                 {
                                     cout << "\n6. Obtener Elemento por Posición" << endl;
@@ -150,6 +155,7 @@ ProgramInit::ProgramInit(){
                                     	cout << "\nPosicion invalida" << endl;
                                     break;
                                 }
+
                                 case 7:
                                 {
                                     cout << "\n7. Obtener Siguiente" << endl;
@@ -162,6 +168,7 @@ ProgramInit::ProgramInit(){
 										cout << "\nEl espacio siguiente esta vacio" << endl;	
                                     break;
                                 }
+
                                 case 8:
                                 {
                                     cout << "\n8. Obtener Anterior" << endl;
@@ -174,6 +181,7 @@ ProgramInit::ProgramInit(){
 										cout << "\nEl espacio anterior esta vacio" << endl;	
                                     break;
                                 }
+
                                 case 9:
                                 {
                                     cout << "\n9. Borrar todos los Elementos (Anula)" << endl;
@@ -185,7 +193,8 @@ ProgramInit::ProgramInit(){
 
                         }while(num != 10);
 
-                    }else if (num == 2){
+                    }
+                    else if (num == 2){
                     	if (lista)
                             delete lista;
 
@@ -270,6 +279,10 @@ ProgramInit::ProgramInit(){
                     cin >> num;
 
                     if (num == 1){
+                        if (arrayStack)
+                            delete arrayStack;
+
+                        arrayStack = new ArrayStack();
 
                         do{
                             cout << "\nOperaciones de ArrayStack"
@@ -280,6 +293,26 @@ ProgramInit::ProgramInit(){
                                  << "\n5. Imprimir elementos"
                                  << "\n6. Regresar al Menú Principal" << endl;
                             cin >> num;
+
+                            cuenta = "0001";//test
+                            switch (num) {
+                                case 1:
+                                    cout << "Vamos a push prueba y 1" << endl;
+                                    nombre = "prueba";
+                                    //cuenta = "0001";
+                                    Alumno* alumno = new Alumno(nombre, cuenta);
+                                    arrayStack->Push(alumno);
+                                    cuenta = "0002";
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    cout << "Tope:" << endl;
+                                    Alumno* alumno = arrayStack->Top();
+                                    cout << alumno->getNombre() << endl;
+                                    cout << alumno->getCuenta() << end;
+                                    break;
+                            }
                         }while(num != 6);
 
                     }else if (num == 2){
