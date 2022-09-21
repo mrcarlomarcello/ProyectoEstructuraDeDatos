@@ -6,12 +6,21 @@
 #ifndef ARRAYSTACK_H
 #define ARRAYSTACK_H
 
+#include "Object.h"
+const int MAX_SIZE = 10;
 
 class ArrayStack {
     public:
-        ArrayStack(); //https://gist.github.com/npocmaka/234af582c10cbbc47cc6e04c14eeed43
+        ArrayStack();
         ~ArrayStack();
+        void Push(Object*);
+        Object* Pop();
+        Object* Top();
+        void printStack();
+
     private:
+        Object** StackDeAlumnos;
+        int top;
 };
 
 

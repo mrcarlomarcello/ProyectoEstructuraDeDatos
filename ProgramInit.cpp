@@ -6,12 +6,15 @@ using namespace std;
 #include "TDALista.h"
 #include "Alumno.h"
 #include "ArrayList.h"
+#include "ArrayStack.h"
+
 #include <iostream>
 
 ProgramInit::ProgramInit(){
 
     int num;
     TDALista* lista = NULL;
+    ArrayStack* arrayStack;
     string nombre;
     string cuenta;
     int posicion;
@@ -19,7 +22,7 @@ ProgramInit::ProgramInit(){
     bool continuar;
     int contador = 0;
     //prueba
-    //cout << "Hello World! Compile test\n" << endl;
+    cout << "Hello World! Compile test\n" << endl;
     
     do{
         cout << "\nMenú Principal"
@@ -280,6 +283,10 @@ ProgramInit::ProgramInit(){
                                  << "\n5. Imprimir elementos"
                                  << "\n6. Regresar al Menú Principal" << endl;
                             cin >> num;
+
+                            switch (num) {
+                                case:1
+                            }
                         }while(num != 6);
 
                     }else if (num == 2){
