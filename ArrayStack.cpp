@@ -40,7 +40,7 @@ Object* ArrayStack::Top()
     if (top == -1)
     {
         cout << "STACK IS EMPTY\n";
-        return -1;
+        return NULL;
     }
     return StackDeAlumnos[top];
 }
