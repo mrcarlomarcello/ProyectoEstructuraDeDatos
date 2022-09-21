@@ -10,7 +10,7 @@
 class ProgramInit {
     public:
         ProgramInit();
-    protected:
+    //protected:
 
 };
 

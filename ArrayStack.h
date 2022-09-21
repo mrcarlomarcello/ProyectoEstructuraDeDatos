@@ -8,7 +8,10 @@
 
 
 class ArrayStack {
-
+    public:
+        ArrayStack(); //https://gist.github.com/npocmaka/234af582c10cbbc47cc6e04c14eeed43
+        ~ArrayStack();
+    private:
 };
 
 

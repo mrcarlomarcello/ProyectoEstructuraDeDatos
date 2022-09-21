@@ -13,16 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ec8e049-a496-441b-a561-2f5c68d54cc0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ArrayQueue.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ArrayQueue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ArrayStack.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ArrayStack.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinkedQueue.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinkedQueue.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinkedStack.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinkedStack.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArrayStack.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ArrayStack.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArrayStack.h" beforeDir="false" afterPath="$PROJECT_DIR$/ArrayStack.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgramInit.h" beforeDir="false" afterPath="$PROJECT_DIR$/ProgramInit.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +75,7 @@
       <workItem from="1663552732859" duration="14000" />
       <workItem from="1663552777791" duration="38000" />
       <workItem from="1663552944965" duration="1047000" />
+      <workItem from="1663707172130" duration="7177000" />
     </task>
     <servers />
   </component>
