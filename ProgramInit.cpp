@@ -404,6 +404,10 @@ ProgramInit::ProgramInit(){
                                 case 4:
                                 {
                                     cout << "\n4. Verificar si está vacía" << endl;
+                                    if(cola->vacia())
+                                    	cout << "La cola esta vacía\n";
+                                    else
+                                    	cout << "La cola no esta vacía\n";
                                     break;
                                 }
 

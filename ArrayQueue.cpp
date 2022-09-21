@@ -59,12 +59,12 @@ void ArrayQueue::anula(){
 Object* ArrayQueue::saca_de_cola(){
 	if (n<0)
 		return NULL;
-	else{
+	/*else{
 		if (inicio == final)
-			inicio = final = -1;
+			inicio = final = 0;
 		else
-			inicio++;
-	}	
+			inicio++;	
+	}	*/
 }
 		
 //Queue
@@ -85,7 +85,7 @@ void ArrayQueue::pone_en_cola(Object* item){
 }
 		
 bool ArrayQueue::vacia(){
-	if (inicio == -1 && final == -1)
+	if (inicio == 0 && final == 0)
 		return true;
 	else
 		return false;
