@@ -2,7 +2,7 @@
 //
 // Created by shello on 09-18-22.
 //
-
+/*
 #ifndef ARRAYSTACK_H
 #define ARRAYSTACK_H
 
@@ -23,5 +23,5 @@ class ArrayStack {
         int top;
 };
 
-
 #endif //ARRAYSTACK_H
+*/

@@ -7,6 +7,7 @@ using namespace std;
 #include "Alumno.h"
 #include "ArrayList.h"
 #include "ArrayStack.h"
+#include "ArrayQueue.h"
 
 #include <iostream>
 
@@ -14,7 +15,8 @@ ProgramInit::ProgramInit(){
 
     int num;
     TDALista* lista = NULL;
-    ArrayStack* arrayStack;
+    TDACola* cola = NULL;
+    //ArrayStack* arrayStack;
     string nombre;
     string cuenta;
     int posicion;
@@ -279,10 +281,11 @@ ProgramInit::ProgramInit(){
                     cin >> num;
 
                     if (num == 1){
-                        if (arrayStack)
+                    	
+                        /*if (arrayStack)
                             delete arrayStack;
 
-                        arrayStack = new ArrayStack();
+                        arrayStack = new ArrayStack();*/
 
                         do{
                             cout << "\nOperaciones de ArrayStack"
@@ -297,20 +300,20 @@ ProgramInit::ProgramInit(){
                             cuenta = "0001";//test
                             switch (num) {
                                 case 1:
-                                    cout << "Vamos a push prueba y 1" << endl;
+                                    /*cout << "Vamos a push prueba y 1" << endl;
                                     nombre = "prueba";
                                     //cuenta = "0001";
                                     Alumno* alumno = new Alumno(nombre, cuenta);
                                     arrayStack->Push(alumno);
-                                    cuenta = "0002";
+                                    cuenta = "0002";*/
                                     break;
                                 case 2:
                                     break;
                                 case 3:
-                                    cout << "Tope:" << endl;
+                                    /*cout << "Tope:" << endl;
                                     Alumno* alumno = arrayStack->Top();
                                     cout << alumno->getNombre() << endl;
-                                    cout << alumno->getCuenta() << end;
+                                    cout << alumno->getCuenta() << end;*/
                                     break;
                             }
                         }while(num != 6);
@@ -339,23 +342,86 @@ ProgramInit::ProgramInit(){
                     cin >> num;
 
                     if (num == 1){
+                    	
+                    	if (lista)
+                            delete lista;
+
+                        cola = new ArrayQueue();
 
                         do{
                             cout << "\nOperaciones de ArrayQueue"
-                                 << "\n1. “Encolar” (queue)"
-                                 << "\n2. “Desencolar” (dequeue)"
+                                 << "\n1. Encolar (queue)"
+                                 << "\n2. Desencolar (dequeue)"
                                  << "\n3. Ver Frente (peek)"
                                  << "\n4. Verificar si está vacía"
                                  << "\n5. Imprimir elementos"
                                  << "\n6. Regresar al Menú Principal" << endl;
                             cin >> num;
+                            
+                            switch (num){
+                                case 1:
+                                {
+                                    cout << "\n1. Encolar (queue)" << endl;
+                                    do{
+                                		cout << "\n1. Insertar Elemento" << endl;
+	                                    cout << "\nIngrese el nombre:" << endl;
+	                                    cin >> nombre;
+	                                    cout << "\nIngrese la cuenta: " << endl;
+	                                    cin >> cuenta;
+	                                    Alumno* alumno = new Alumno(nombre, cuenta);
+	                                    cola->pone_en_cola(alumno);
+	                                    
+	                                    do{
+	                                    	
+	                                    	if (contador > 0)
+	                                    		cout << "\nEsa no es una de las opciones\n";
+	                                    	cout << "¿Desea seguir insertando? 1 = Si, 2 = No: \n";
+	                                    	cin >> opciones;
+		                                    if (opciones == 1)
+		                                    	continuar = true;
+		                                    else if (opciones == 2)
+		                                    	continuar = false;
+		                                    contador++;
+	                                    	
+										}while(opciones > 2);
+										contador = 0;
+	                                    
+									}while(continuar);
+									
+									break;
+                                }
+                                case 2:
+                                {
+                                    cout << "\n2. Desencolar (dequeue)" << endl;
+                                    break;
+                                }
+                                case 3:
+                                {
+                                    cout << "\n3. Ver Frente (peek)" << endl;
+                                    break;
+                                }
+
+                                case 4:
+                                {
+                                    cout << "\n4. Verificar si está vacía" << endl;
+                                    break;
+                                }
+
+                                case 5:
+                                {
+                                    cout << "\n5. Imprimir elementos" << endl;
+                                    cola->imprime_cola();
+                                    break;
+                                }
+                            }
+                            
                         }while(num != 6);
 
                     }else if (num == 2){
                         do{
                             cout << "\nOperaciones de LinkedQueue"
-                                 << "\n1. “Encolar” (queue)"
-                                 << "\n2. “Desencolar” (dequeue)"
+                                 << "\n1. Encolar (queue)"
+                                 << "\n2. Desencolar (dequeue)"
                                  << "\n3. Ver Frente (peek)"
                                  << "\n4. Verificar si está vacía"
                                  << "\n5. Imprimir elementos"

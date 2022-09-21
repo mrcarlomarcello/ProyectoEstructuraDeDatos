@@ -18,6 +18,8 @@ class ArrayQueue : public TDACola
 		
 		virtual void imprime_cola();
 		
+		void imprimir(Object* item);
+		
 		virtual void anula();
 		
 		//Dequeue

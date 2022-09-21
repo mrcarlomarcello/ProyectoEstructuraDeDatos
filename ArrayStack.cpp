@@ -1,7 +1,7 @@
 //
 // Created by shello on 09-18-22.
 //
-
+/*
 #include "ArrayStack.h"
 
 #include "stdafx.h"
@@ -44,3 +44,4 @@ Object* ArrayStack::Top()
     }
     return StackDeAlumnos[top];
 }
+*/
