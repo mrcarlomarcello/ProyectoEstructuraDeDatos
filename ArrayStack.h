@@ -6,10 +6,10 @@
 #ifndef ARRAYSTACK_H
 #define ARRAYSTACK_H
 
-#include "Object.h"
+#include "TDAPila.h"
 const int MAX_SIZE = 10;
 
-class ArrayStack {
+class ArrayStack : public TDAPila{
     public:
         ArrayStack();
         ~ArrayStack();
@@ -19,7 +19,7 @@ class ArrayStack {
         void printStack();
 
     private:
-        Object** StackDeAlumnos;
+        Object** array;
         int top;
 };
 

@@ -4,25 +4,27 @@
 
 #include "ArrayStack.h"
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <iostream>
 
 using namespace std;
 
 ArrayStack::ArrayStack() {
     this->top = -1;
-    StackDeAlumnos = new Object*[MAX_SIZE];
+    this->array = new Object*[MAX_SIZE];
     for(int i=0; i<MAX_SIZE; i++)
-        StackDeAlumnos[i] = NULL;
+        array[i] = NULL;
 }
 
-void ArrayStack::Push(Object* _alumno) {
+ArrayStack::~ArrayStack() {}
+
+void ArrayStack::Push(Object* _simbolo) {
     if (this->top >= (MAX_SIZE -1))
     {
         cout << "Limite de la pila alcanzado\n";
         return;
     }
-    this->StackDeAlumnos[++top] = _alumno;
+    this->array[++top] = _simbolo;
 }
 
 Object* ArrayStack::Pop(){
@@ -31,7 +33,7 @@ Object* ArrayStack::Pop(){
         cout << "Pila vacía\n";
         return NULL;
     }
-    return StackDeAlumnos[top--];
+    return array[top--];
 
 }
 
@@ -42,5 +44,5 @@ Object* ArrayStack::Top()
         cout << "STACK IS EMPTY\n";
         return NULL;
     }
-    return StackDeAlumnos[top];
+    return array[top];
 }

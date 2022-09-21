@@ -7,6 +7,7 @@ using namespace std;
 #include "Alumno.h"
 #include "ArrayList.h"
 #include "ArrayStack.h"
+#include "Simbolo.h"
 
 #include <iostream>
 
@@ -14,7 +15,9 @@ ProgramInit::ProgramInit(){
 
     int num;
     TDALista* lista = NULL;
-    ArrayStack* arrayStack;
+    TDAPila* arrayStack;
+    Alumno* alumno;
+    Simbolo* simbolo;
     string nombre;
     string cuenta;
     int posicion;
@@ -23,7 +26,8 @@ ProgramInit::ProgramInit(){
     int contador = 0;
     //prueba
     cout << "Hello World! Compile test\n" << endl;
-    
+
+
     do{
         cout << "\nMenú Principal"
              << "\n1. Trabajar con Listas"
@@ -279,6 +283,8 @@ ProgramInit::ProgramInit(){
                     cin >> num;
 
                     if (num == 1){
+                        char test = '@';
+                        //borra el stack
                         if (arrayStack)
                             delete arrayStack;
 
@@ -294,23 +300,20 @@ ProgramInit::ProgramInit(){
                                  << "\n6. Regresar al Menú Principal" << endl;
                             cin >> num;
 
-                            cuenta = "0001";//test
                             switch (num) {
                                 case 1:
-                                    cout << "Vamos a push prueba y 1" << endl;
-                                    nombre = "prueba";
-                                    //cuenta = "0001";
-                                    Alumno* alumno = new Alumno(nombre, cuenta);
-                                    arrayStack->Push(alumno);
-                                    cuenta = "0002";
+                                    cout << "Vamos a push @" << endl;
+                                    simbolo = new Simbolo;
+                                    simbolo->setSimbolo(test);
+                                    arrayStack->Push(simbolo);
+
                                     break;
                                 case 2:
                                     break;
                                 case 3:
                                     cout << "Tope:" << endl;
-                                    Alumno* alumno = arrayStack->Top();
-                                    cout << alumno->getNombre() << endl;
-                                    cout << alumno->getCuenta() << end;
+                                    simbolo = arrayStack->Top();
+                                    cout << simbolo->getSimbolo() << endl;
                                     break;
                             }
                         }while(num != 6);
