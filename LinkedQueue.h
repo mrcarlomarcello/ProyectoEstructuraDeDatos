@@ -29,7 +29,7 @@ class LinkedQueue : public TDACola
 		
 		virtual bool vacia();
 	protected:
-		Nodo* Nodofrente;
+		Nodo* inicio;
 		Nodo* final;
 };
 
