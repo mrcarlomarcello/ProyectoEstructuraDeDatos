@@ -9,12 +9,25 @@ using namespace std;
 #include "ArrayStack.h"
 #include "ArrayQueue.h"
 #include "LinkedQueue.h"
+#include <string>
 
 #include <iostream>
 
+bool EsUnNumero(const char* cadena)
+{
+  for( ; *cadena; ++cadena )
+  {
+    // En cuanto un caracter no sea numérico
+    if( !std::isdigit(*cadena) )
+      return false;
+  }
+
+  return true;
+}
+
 ProgramInit::ProgramInit(){
 
-    int num;
+    int num = 0;
     TDALista* lista = NULL;
     TDACola* cola = NULL;
     //ArrayStack* arrayStack;
@@ -22,8 +35,10 @@ ProgramInit::ProgramInit(){
     string cuenta;
     int posicion;
     int opciones;
-    bool continuar;
+    bool continuar = true;
+    bool seguir;
     int contador = 0;
+    char menu[5];
     //prueba
     cout << "Hello World! Compile test\n" << endl;
     
@@ -33,8 +48,13 @@ ProgramInit::ProgramInit(){
              << "\n2. Trabajar con Pilas"
              << "\n3. Trabajar con Colas"
              << "\n4. Salir" << endl;
-        cin >> num;
-
+        cin >> menu;
+        
+		if (!EsUnNumero(menu) || (stoi(menu) > 9))
+			num = 5;
+		else
+			num = stoi(menu);
+			
         switch(num){
             case 1:
                 do{
@@ -42,7 +62,12 @@ ProgramInit::ProgramInit(){
                          << "\n1. Trabajar con ArrayList"
                          << "\n2. Trabajar con LinkedList"
                          << "\n3. Regresar al menú principal" << endl;
-                    cin >> num;
+                    cin >> menu;
+		
+					if (!EsUnNumero(menu) || (stoi(menu) > 3))
+						num = 4;
+					else
+						num = stoi(menu);
 
                     if (num == 1){
 
@@ -63,8 +88,13 @@ ProgramInit::ProgramInit(){
                                  << "\n8. Obtener Anterior"
                                  << "\n9. Borrar todos los Elementos (Anula)"
                                  << "\n10. Regresar al Menú Principal" << endl;
-                            cin >> num;
-
+                            cin >> menu;
+		
+							if (!EsUnNumero(menu) || (stoi(menu) > 10))
+								num = 11;
+							else
+								num = stoi(menu);
+                            
                             switch (num){
                                 case 1:
                                 {
@@ -90,16 +120,17 @@ ProgramInit::ProgramInit(){
 	                                    	cout << "¿Desea seguir insertando? 1 = Si, 2 = No: \n";
 	                                    	cin >> opciones;
 		                                    if (opciones == 1)
-		                                    	continuar = true;
+		                                    	seguir = true;
 		                                    else if (opciones == 2)
-		                                    	continuar = false;
+		                                    	seguir = false;
 		                                    contador++;
 	                                    	
 										}while(opciones > 2);
 										contador = 0;
 	                                    
-									}while(continuar);
-                                    
+									}while(seguir);
+									
+									continuar = true;
                                     //Prueba
                                     //lista->imprimir_lista();
                                     break;
@@ -109,6 +140,7 @@ ProgramInit::ProgramInit(){
                                 {
                                     cout << "\n2. Imprimir Elementos" << endl;
                                     lista->imprimir_lista();
+                                    continuar = true;
                                     break;
                                 }
 
@@ -117,7 +149,7 @@ ProgramInit::ProgramInit(){
                                     cout << "\n3. Buscar Elemento" << endl;
                                     cout << "\nIngrese el numero de cuenta del usuario: " << endl;
                                     cin >> cuenta;
-	
+									continuar = true;
                                     //lista->localiza();
                                     break;
                                 }
@@ -131,6 +163,7 @@ ProgramInit::ProgramInit(){
                                     	cout << "\nElemento eliminado con exito" << endl;
                                     else
                                     	cout << "\nEl elemento no se pudo eliminar" << endl;
+                                	continuar = true;
                                     break;
                                 }
 
@@ -141,7 +174,7 @@ ProgramInit::ProgramInit(){
                                     	cout << "La lista esta vacía\n";
                                     else
                                     	cout << "La lista no esta vacía\n";
-                                    	
+                                    continuar = true;	
                                     break;
                                 }
 
@@ -156,6 +189,7 @@ ProgramInit::ProgramInit(){
 									}
                                     else
                                     	cout << "\nPosicion invalida" << endl;
+                                    continuar = true;
                                     break;
                                 }
 
@@ -168,7 +202,8 @@ ProgramInit::ProgramInit(){
                                     	cout << "\nElemento:\n";
                                     	cout << lista->siguiente(posicion)->toString() << endl;
 									}else
-										cout << "\nEl espacio siguiente esta vacio" << endl;	
+										cout << "\nEl espacio siguiente esta vacio" << endl;
+									continuar = true;	
                                     break;
                                 }
 
@@ -182,6 +217,7 @@ ProgramInit::ProgramInit(){
                                     	cout << lista->anterior(posicion)->toString() << endl;
 									}else
 										cout << "\nEl espacio anterior esta vacio" << endl;	
+									continuar = true;
                                     break;
                                 }
 
@@ -190,11 +226,22 @@ ProgramInit::ProgramInit(){
                                     cout << "\n9. Borrar todos los Elementos (Anula)" << endl;
                                     lista->anula();
                                     cout << "\nLista anulada correctamente" << endl;
+                                	continuar = true;
                                     break;
                                 }
+                                case 10:
+					            {
+									continuar = false;
+					            	break;
+					            }
+					            default:
+					            {
+					            	cout << "\nOpción invalida" << endl;
+					            	continuar = true;
+								} 
                             }
 
-                        }while(num != 10);
+                        }while(continuar);
 
                     }
                     else if (num == 2){
@@ -215,61 +262,89 @@ ProgramInit::ProgramInit(){
                                  << "\n8. Obtener Anterior"
                                  << "\n9. Borrar todos los Elementos (Anula)"
                                  << "\n10. Regresar al Menú Principal" << endl;
-                            cin >> num;
+                            cin >> menu;
+                            
+                            if (!EsUnNumero(menu) || (stoi(menu) > 10))
+								num = 11;
+							else
+								num = stoi(menu);
 
                             switch (num){
                                 case 1:
                                 {
                                     cout << "\n1. Insertar Elemento" << endl;
+                                    continuar = true;
 
                                 }
                                     break;
                                 case 2:
                                 {
                                     cout << "\n2. Imprimir Elementos" << endl;
+                                    continuar = true;
                                     break;
                                 }
                                 case 3:
                                 {
                                     cout << "\n3. Buscar Elemento" << endl;
+                                    continuar = true;
                                     break;
                                 }
 
                                 case 4:
                                 {
                                     cout << "\n4. Borrar Elemento" << endl;
+                                    continuar = true;
                                     break;
                                 }
 
                                 case 5:
                                 {
                                     cout << "\n5. Ver si está vacía" << endl;
+                                    continuar = true;
                                     break;
                                 }
                                 case 6:
                                 {
                                     cout << "\n6. Obtener Elemento por Posición" << endl;
+                                    continuar = true;
                                     break;
                                 }
                                 case 7:
                                 {
                                     cout << "\n7. Obtener Siguiente" << endl;
+                                    continuar = true;
                                     break;
                                 }
                                 case 8:
                                 {
                                     cout << "\n8. Obtener Anterior" << endl;
+                                    continuar = true;
                                     break;
                                 }
                                 case 9:
                                 {
                                     cout << "\n9. Borrar todos los Elementos (Anula)" << endl;
+                                    continuar = true;
                                     break;
                                 }
+                                case 10:
+					            {
+									continuar = false;
+					            	break;
+					            }
+					            default:
+					            {
+					            	cout << "\nOpción invalida" << endl;
+					            	continuar = true;
+								} 
                             }
 
-                        }while(num != 10);
+                        }while(continuar);
                     }
+                    else if (num == 4){
+                    	cout << "\nOpción invalida" << endl;
+					    continuar = true;
+					}
                 }while(num != 3);
                 break;
 
@@ -279,13 +354,17 @@ ProgramInit::ProgramInit(){
                          << "\n1. Trabajar con ArrayStack"
                          << "\n2. Trabajar con LinkedStack"
                          << "\n3. Regresar al menu principal" << endl;
-                    cin >> num;
+                    cin >> menu;
+                    
+                    if (!EsUnNumero(menu) || (stoi(menu) > 3))
+						num = 4;
+					else
+						num = stoi(menu);
 
                     if (num == 1){
                     	
                         /*if (arrayStack)
                             delete arrayStack;
-
                         arrayStack = new ArrayStack();*/
 
                         do{
@@ -296,7 +375,12 @@ ProgramInit::ProgramInit(){
                                  << "\n4. Verificar si está vacía"
                                  << "\n5. Imprimir elementos"
                                  << "\n6. Regresar al Menú Principal" << endl;
-                            cin >> num;
+                            cin >> menu;
+                            
+                            if (!EsUnNumero(menu) || (stoi(menu) > 6))
+								num = 7;
+							else
+								num = stoi(menu);
 
                             cuenta = "0001";//test
                             switch (num) {
@@ -307,6 +391,7 @@ ProgramInit::ProgramInit(){
                                     Alumno* alumno = new Alumno(nombre, cuenta);
                                     arrayStack->Push(alumno);
                                     cuenta = "0002";*/
+                                    continuar = true;
                                     break;
                                 case 2:
                                     break;
@@ -315,9 +400,26 @@ ProgramInit::ProgramInit(){
                                     Alumno* alumno = arrayStack->Top();
                                     cout << alumno->getNombre() << endl;
                                     cout << alumno->getCuenta() << end;*/
+                                    continuar = true;
                                     break;
+                                case 4:
+                                	continuar = true;
+                                    break;
+                                case 5:
+                                	continuar = true;
+                                    break;
+                                case 6:
+					            {
+									continuar = false;
+					            	break;
+					            }
+					            default:
+					            {
+					            	cout << "\nOpción invalida" << endl;
+					            	continuar = true;
+								}   
                             }
-                        }while(num != 6);
+                        }while(continuar);
 
                     }else if (num == 2){
                         do{
@@ -328,9 +430,45 @@ ProgramInit::ProgramInit(){
                                  << "\n4. Verificar si está vacía"
                                  << "\n5. Imprimir elementos"
                                  << "\n6. Regresar al Menú Principal" << endl;
-                            cin >> num;
-                        }while(num != 6);
+                            cin >> menu;
+                            
+                            if (!EsUnNumero(menu) || (stoi(menu) > 6))
+								num = 7;
+							else
+								num = stoi(menu);
+							
+							switch (num) {
+                                case 1:                       
+                                    continuar = true;
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    continuar = true;
+                                    break;
+                                case 4:
+                                	continuar = true;
+                                    break;
+                                case 5:
+                                	continuar = true;
+                                    break;
+                                case 6:
+					            {
+									continuar = false;
+					            	break;
+					            }
+					            default:
+					            {
+					            	cout << "\nOpción invalida" << endl;
+					            	continuar = true;
+								} 	
+							}	
+                        }while(continuar);
                     }
+                    else if (num == 4){
+                    	cout << "\nOpción invalida" << endl;
+					    continuar = true;
+					}
                 }while(num != 3);
                 break;
 
@@ -340,7 +478,12 @@ ProgramInit::ProgramInit(){
                          << "\n1. Trabajar con ArrayQueue"
                          << "\n2. Trabajar con LinkedQueue"
                          << "\n3. Regresar al menu principal" << endl;
-                    cin >> num;
+                    cin >> menu;
+                    
+                    if (!EsUnNumero(menu) || (stoi(menu) > 3))
+						num = 4;
+					else
+						num = stoi(menu);
 
                     if (num == 1){
                     	
@@ -357,7 +500,12 @@ ProgramInit::ProgramInit(){
                                  << "\n4. Verificar si está vacía"
                                  << "\n5. Imprimir elementos"
                                  << "\n6. Regresar al Menú Principal" << endl;
-                            cin >> num;
+                            cin >> menu;
+		
+							if (!EsUnNumero(menu) || (stoi(menu) > 6))
+								num = 7;
+							else
+								num = stoi(menu);
                             
                             switch (num){
                                 case 1:
@@ -430,9 +578,19 @@ ProgramInit::ProgramInit(){
                                     cola->imprime_cola();
                                     break;
                                 }
+                                case 6:
+					            {
+									continuar = false;
+					            	break;
+					            }
+					            default:
+					            {
+					            	cout << "\nOpción invalida" << endl;
+					            	continuar = true;
+								}                                 
                             }
                             
-                        }while(num != 6);
+                        }while(continuar);
 
                     }else if (num == 2){
                     	
@@ -449,7 +607,13 @@ ProgramInit::ProgramInit(){
                                  << "\n4. Verificar si está vacía"
                                  << "\n5. Imprimir elementos"
                                  << "\n6. Regresar al Menú Principal" << endl;
-                            cin >> num;
+                            cin >> menu;
+		
+							if (!EsUnNumero(menu) || (stoi(menu) > 6))
+								num = 7;
+							else
+								num = stoi(menu);
+								
                              switch (num){
                                 case 1:
                                 {
@@ -521,13 +685,37 @@ ProgramInit::ProgramInit(){
                                     cola->imprime_cola();
                                     break;
                                 }
+                                case 6:
+					            {
+									continuar = false;
+					            	break;
+					            }
+					            default:
+					            {
+					            	cout << "\nOpción invalida" << endl;
+					            	continuar = true;
+								} 
                             }
                             
-                        }while(num != 6);
+                        }while(continuar);
                     }
+                    else if (num == 4){
+                    	cout << "\nOpción invalida" << endl;
+					    continuar = true;
+					}
                 }while(num != 3);
                 break;
+            case 4:
+            {
+				continuar = false;
+            	break;
+            }
+            default:
+            {
+            	cout << "\nOpción invalida" << endl;
+			}    	
         }
 
-    }while(num != 4);
+    }while(continuar);
+		
 };
