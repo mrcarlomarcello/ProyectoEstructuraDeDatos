@@ -24,7 +24,7 @@ class ArrayStack : public TDAPila{
         Object** array;
         int top;
         int MAX_SIZE;
-        void recorrerPila(int);
+        virtual void recorrerPila(int);
 };
 
 

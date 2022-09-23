@@ -18,6 +18,7 @@ class TDAPila{
         virtual void printStack()=0;
 
     protected:
+        virtual void recorrerPila(int)=0;
 };
 
 
