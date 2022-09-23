@@ -266,31 +266,33 @@ ProgramInit::ProgramInit(){
 
                             switch (num) {
                                 case 1:{
-                                    cout << "Vamos a push @lgo: solo un simbolo a la vez" << endl;
+                                    cout << "[     Vamos a push @lgo: solo un simbolo a la vez     ]" << endl;
                                     cin >> simbolo;
                                     Simbolo* simStack = new Simbolo();
                                     simStack->setSimbolo(simbolo[0]);
                                     arrayStack->Push(simStack);
-                                    cout << "Listo, hemos agregado: " << simbolo[0] << endl;
+                                    cout << "[ Listo, hemos agregado: " << simbolo[0] << " ] "<< endl;
                                     break;
                                 }                                    
                                 case 2:{
-                                    Object* simStack = new Simbolo();
-                                    simStack = arrayStack->Pop();                                    
-                                    cout << "not done yet" << simStack->toString()<< "Poped" << endl;
+                                    Object* popedItem = arrayStack->Pop();
+                                    cout << "[ Listo hemos Poped-out: " << popedItem->toString()<< " << Poped ]" << endl;
                                     break;
                                 }    
                                 case 3:{
-                                    cout << "Tope:" << endl;
+                                    cout << "[    Veamos el Tope de la pila   :    ]" << endl;
                                     Object* sim = arrayStack->Top();
-                                    cout << "God it worked..."<< sim->toString() << endl;
+                                    cout << "[   God it worked... este es el tope : "<< sim->toString() << " ] "<< endl;
                                     break;
                                 }
                                 case 4:{
-                                    cout << "yeah not done..." << endl;
+                                    cout << "yeah not done... veamos si funciona Vacía: " << endl;
+                                    string temp = arrayStack->vacia() ? "true" : "false";
+                                    cout <<  temp << endl;
                                     break;
                                 }                                   
                                 case 5:{
+                                    arrayStack->printStack();
                                     cout << "falta too " << endl;
                                     break;
                                 }

@@ -48,6 +48,21 @@ Object* ArrayStack::Top()
     return array[top];
 }
 
-bool ArrayStack::vacia(){}
+bool ArrayStack::vacia(){
+    if(top == -1)
+        return true;
+    return false;
+}
 
-void ArrayStack::printStack(){}
+void ArrayStack::printStack(){
+    cout << "Usaremos recursión para sacar la pila en orden y volver armarla." << endl;
+    this->recorrerPila(top);
+}
+
+void ArrayStack::recorrerPila(int pos) {
+    if(pos == -1){ cout << "Listo este es el fondo o la pila está va©ía. " << endl; return;}
+    Object* temp = this->Pop();
+    cout << " [ " << temp->toString() << " ] " << endl;
+    recorrerPila(top);
+    this->Push(temp);
+}

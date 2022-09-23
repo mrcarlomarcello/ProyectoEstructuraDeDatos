@@ -13,24 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ec8e049-a496-441b-a561-2f5c68d54cc0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TextoMenu.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TextoMenu.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alumno.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Alumno.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArrayQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ArrayQueue.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArrayQueue.h" beforeDir="false" afterPath="$PROJECT_DIR$/ArrayQueue.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ArrayStack.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ArrayStack.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ArrayStack.h" beforeDir="false" afterPath="$PROJECT_DIR$/ArrayStack.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedQueue.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedQueue.h" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedQueue.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nodo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Nodo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Nodo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Nodo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgramInit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgramInit.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simbolo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Simbolo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simbolo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Simbolo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TDACola.h" beforeDir="false" afterPath="$PROJECT_DIR$/TDACola.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TDAPila.h" beforeDir="false" afterPath="$PROJECT_DIR$/TDAPila.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proyectoApp" beforeDir="false" afterPath="$PROJECT_DIR$/proyectoApp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +86,7 @@
       <workItem from="1663919696696" duration="3618000" />
       <workItem from="1663923933548" duration="1656000" />
       <workItem from="1663925663694" duration="10814000" />
+      <workItem from="1663937337146" duration="3822000" />
     </task>
     <servers />
   </component>

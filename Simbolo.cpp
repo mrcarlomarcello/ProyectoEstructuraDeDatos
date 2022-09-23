@@ -11,7 +11,7 @@ Simbolo::Simbolo()
 bool Simbolo::equals(Object* item){}
 
 string  Simbolo::toString() {
-    temp += this->simbolo;
+    temp = this->simbolo;
     return temp;
 }
 
