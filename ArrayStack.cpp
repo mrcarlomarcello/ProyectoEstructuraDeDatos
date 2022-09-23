@@ -19,13 +19,13 @@ ArrayStack::ArrayStack() {
 
 ArrayStack::~ArrayStack() {}
 
-void ArrayStack::Push(Object* _simbolo) {
+void ArrayStack::Push(Object* _item) {
     if (this->top >= (MAX_SIZE -1))
     {
         cout << "Límite de la pila alcanzado, prueba 'Sacar' un elemento de la pila.\n";
         return;
     }
-    this->array[++top] = _simbolo;
+    this->array[++top] = _item;
 }
 
 Object* ArrayStack::Pop(){

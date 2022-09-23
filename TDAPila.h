@@ -8,7 +8,7 @@
 
 #include "Object.h"
 
-class TDAPila{
+class TDAPila {
 
     public:
         virtual void Push(Object*)=0;

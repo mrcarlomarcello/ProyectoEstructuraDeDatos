@@ -10,6 +10,7 @@ using namespace std;
 #include "ArrayList.h"
 #include "LinkedList.h"
 #include "ArrayStack.h"
+#include "LinkedStack.h"
 #include "ArrayQueue.h"
 #include "LinkedQueue.h"
 #include "TextoMenu.h"
@@ -306,10 +307,50 @@ ProgramInit::ProgramInit(){
                         }
 
                         case 2:{
+                            //borra el stack
+                            if (arrayStack)
+                                delete arrayStack;
+
+                            arrayStack = new LinkedStack();
 
                             do{
                                 Menu->printMenuLinkedStack();
                                 cin >> num;
+
+                                switch (num) {
+                                    case 1:{
+                                        cout << "[     Vamos a push @lgo: solo un simbolo a la vez     ]" << endl;
+                                        cin >> simbolo;
+                                        Simbolo* simStack = new Simbolo();
+                                        simStack->setSimbolo(simbolo[0]);
+                                        arrayStack->Push(simStack);
+                                        cout << "[ Listo, hemos agregado: " << simbolo[0] << " ] "<< endl;
+                                        break;
+                                    }
+                                    case 2:{
+                                        Object* popedItem = arrayStack->Pop();
+                                        cout << "[ Listo hemos Poped-out: " << popedItem->toString()<< " << Poped ]" << endl;
+                                        break;
+                                    }
+                                    case 3:{
+                                        cout << "[    Veamos el Tope de la pila   :    ]" << endl;
+                                        Object* sim = arrayStack->Top();
+                                        cout << "[   God it worked... este es el tope : "<< sim->toString() << " ] "<< endl;
+                                        break;
+                                    }
+                                    case 4:{
+                                        cout << "yeah not done... veamos si funciona Vacía: " << endl;
+                                        string temp = arrayStack->vacia() ? "true" : "false";
+                                        cout <<  temp << endl;
+                                        break;
+                                    }
+                                    case 5:{
+                                        arrayStack->printStack();
+                                        cout << "falta too " << endl;
+                                        break;
+                                    }
+
+                                }
                             }while(num != 6);
                             break;
                         }

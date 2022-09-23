@@ -9,11 +9,20 @@
 #include "TDAPila.h"
 #include "Nodo.h"
 
-class LinkedStack : TDAPila {
+class LinkedStack : public TDAPila {
     public:
         LinkedStack();
         ~LinkedStack();
-        
+        virtual void Push(Object*);
+        virtual Object* Pop();
+        virtual Object* Top();
+        virtual bool vacia();
+        virtual void printStack();
+
+    private:
+        Nodo* inicio;
+        Nodo* final;
+        virtual void recorrerPila(int);
 };
 
 
