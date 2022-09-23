@@ -39,6 +39,8 @@ Object* LinkedStack::Pop(){
     }else {
         Object* temp = final->getItem();
         final = final->getAnterior();
+        if(final==NULL)
+            inicio=NULL;
         // creo que lekea memoria
         return temp;
     }
@@ -60,14 +62,14 @@ void LinkedStack::printStack() {
 }
 
 void LinkedStack::recorrerPila(int tope) {
-    Object* temp = this->Pop();
-    if(temp==NULL){
+    if(inicio==NULL){
         cout << "Listo este es el fondo o la pila está va©ía. " << endl;
         return;
     }else{
+        Object *temp = this->Pop();
         cout << " [ " << temp->toString() << " ] " << endl;
         recorrerPila(tope);
+        this->Push(temp);
     }
-    this->Push(temp);
 }
 

@@ -346,7 +346,6 @@ ProgramInit::ProgramInit(){
                                     }
                                     case 5:{
                                         arrayStack->printStack();
-                                        cout << "falta too " << endl;
                                         break;
                                     }
 
