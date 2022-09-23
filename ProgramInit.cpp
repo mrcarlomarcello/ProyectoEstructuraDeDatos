@@ -9,7 +9,6 @@ using namespace std;
 #include "ArrayStack.h"
 #include "ArrayQueue.h"
 #include "LinkedQueue.h"
-#include <string>
 
 #include <iostream>
 
@@ -346,6 +345,7 @@ ProgramInit::ProgramInit(){
 					    continuar = true;
 					}
                 }while(num != 3);
+                continuar = true;
                 break;
 
             case 2:
@@ -470,6 +470,7 @@ ProgramInit::ProgramInit(){
 					    continuar = true;
 					}
                 }while(num != 3);
+                continuar = true;
                 break;
 
             case 3:
@@ -704,6 +705,7 @@ ProgramInit::ProgramInit(){
 					    continuar = true;
 					}
                 }while(num != 3);
+                continuar = true;
                 break;
             case 4:
             {
