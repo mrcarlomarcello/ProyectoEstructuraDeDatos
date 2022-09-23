@@ -6,14 +6,14 @@
 #ifndef PROYECTOESTRUCTURADEDATOS_TDAPILA_H
 #define PROYECTOESTRUCTURADEDATOS_TDAPILA_H
 
-#include "Object.h"
+#include "Simbolo.h"
 
 class TDAPila {
     public:
 
-        virtual void Push(Object*)=0;
-        virtual Object* Pop()=0;
-        virtual Object* Top()=0;
+        virtual void Push(Simbolo*)=0;
+        virtual Simbolo* Pop()=0;
+        virtual Simbolo* Top()=0;
         virtual void printStack()=0;
 };
 

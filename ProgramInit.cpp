@@ -4,9 +4,11 @@
 using namespace std;
 #include "ProgramInit.h"
 #include "TDALista.h"
+#include "TDAPila.h"
 #include "Alumno.h"
 #include "ArrayList.h"
 #include "ArrayStack.h"
+#include "Object.h"
 #include "Simbolo.h"
 
 #include <iostream>
@@ -23,7 +25,7 @@ ProgramInit::ProgramInit(){
     bool continuar;
     int contador = 0;
     //prueba
-    cout << "Hello World! Compile test\n" << endl;
+    cout << "Hello World! Compile test 2\n" << endl;
 
 
     do{
@@ -300,14 +302,13 @@ ProgramInit::ProgramInit(){
                             switch (num) {
                                 case 1:
                                     cout << "Vamos a push @" << endl;
-                                    Simbolo* simbolo = new Simbolo;
-                                    simbolo->setSimbolo('@');
-                                    arrayStack->Push(simbolo);
+                                    Simbolo* simStack;// = new Simbolo();
+                                    simStack->setSimbolo('@');
+                                    arrayStack->Push(simStack);
                                     break;
-
                                 case 2:
+                                    cout << "not done yet" << endl;
                                     break;
-
                                 case 3:
                                     cout << "Tope:" << endl;
                                     Simbolo* sim = arrayStack->Top();
