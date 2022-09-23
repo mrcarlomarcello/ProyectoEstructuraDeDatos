@@ -5,140 +5,140 @@ using namespace std;
 
 LinkedList::LinkedList()
 {
-	inicio=NULL;
-	final=NULL;
-	n=0;
+    inicio=NULL;
+    final=NULL;
+    n=0;
 }
 
 LinkedList::~LinkedList()
 {
-	if(inicio)
-		delete inicio;
+    if(inicio)
+        delete inicio;
 }
 
 void LinkedList::anula(){
-	delete inicio;
-	final = NULL;
-	n = 0;
+    delete inicio;
+    final = NULL;
+    n = 0;
 }
 
 bool LinkedList::inserta(Object* item, int posicion){
-	Nodo* newNode = new Nodo();
-	Nodo* temp = inicio;
-	newNode->setItem(item);
-			
-	if (posicion>=1 && posicion<=n+1){
-		if (posicion==n+1){
-			append(item);
-		} else if (posicion == 1){
-			for (int i=1; i<=posicion; i++)
-				temp=temp->getSiguiente();
-			inicio->setAnterior(newNode);
-			newNode->setSiguiente(inicio);
-			inicio = newNode;
-		}else{ 
-			for (int i=1; i<=posicion; i++)
-				temp=temp->getSiguiente();
-			temp->getAnterior()->setSiguiente(newNode);
-			newNode->setAnterior(temp->getAnterior());
-			newNode->setSiguiente(temp);
-			temp->setAnterior(newNode);	
-		}
-		n++;
-		return true;
-	}else
-		return false;
+    Nodo* newNode = new Nodo();
+    Nodo* temp = inicio;
+    newNode->setItem(item);
+
+    if (posicion>=1 && posicion<=n+1){
+        if (posicion==n+1){
+            append(item);
+        } else if (posicion == 1){
+            for (int i=1; i<=posicion; i++)
+                temp=temp->getSiguiente();
+            inicio->setAnterior(newNode);
+            newNode->setSiguiente(inicio);
+            inicio = newNode;
+        }else{
+            for (int i=1; i<=posicion; i++)
+                temp=temp->getSiguiente();
+            temp->getAnterior()->setSiguiente(newNode);
+            newNode->setAnterior(temp->getAnterior());
+            newNode->setSiguiente(temp);
+            temp->setAnterior(newNode);
+        }
+        n++;
+        return true;
+    }else
+        return false;
 }
 
 Object* LinkedList::siguiente(int posicion){
-	return recupera(posicion + 1);
+    return recupera(posicion + 1);
 }
 
 Object* LinkedList::anterior(int posicion){
-	return recupera(posicion - 1);
+    return recupera(posicion - 1);
 }
 
 void LinkedList::append(Object* item){
-	Nodo* temp = new Nodo();
-	temp->setItem(item);
-	final->setSiguiente(temp);
-	temp->setAnterior(final);
-	final = temp;
-	n++;
+    Nodo* temp = new Nodo();
+    temp->setItem(item);
+    final->setSiguiente(temp);
+    temp->setAnterior(final);
+    final = temp;
+    n++;
 }
 
 void LinkedList::imprimir_lista(){
-	Nodo* temp = inicio;
-	for(int i=1; i<=n; i++){
-		cout<<(temp->getItem()->toString());
-	}
+    Nodo* temp = inicio;
+    for(int i=1; i<=n; i++){
+        cout<<(temp->getItem()->toString());
+    }
 }
 
 bool LinkedList::suprime(int posicion){
-	if (posicion>=1 && posicion<=n){
-		Nodo* temp = NULL;
-		if (posicion==1){ 
-			temp = inicio;
-			inicio = inicio->getSiguiente();
-			temp->setSiguiente(NULL);
-			inicio->setAnterior(NULL);
-			
-		}else if (posicion == n){
-			temp = final;
-			final = final->getAnterior();
-			final->setSiguiente(NULL);
-			temp->setAnterior(NULL);
-				
-		}else{
-			temp = inicio;
-			for (int i=1; i<=posicion; i++)
-				temp=temp->getSiguiente();
-			temp->getAnterior()->setSiguiente(temp->getSiguiente());
-			temp->getSiguiente()->setAnterior(temp->getAnterior());
-			temp->setSiguiente(NULL);
-			temp->setAnterior(NULL);
-		} 
-		delete temp;
-		n--;
-		return true;	
-	}else
-		return false;
+    if (posicion>=1 && posicion<=n){
+        Nodo* temp = NULL;
+        if (posicion==1){
+            temp = inicio;
+            inicio = inicio->getSiguiente();
+            temp->setSiguiente(NULL);
+            inicio->setAnterior(NULL);
+
+        }else if (posicion == n){
+            temp = final;
+            final = final->getAnterior();
+            final->setSiguiente(NULL);
+            temp->setAnterior(NULL);
+
+        }else{
+            temp = inicio;
+            for (int i=1; i<=posicion; i++)
+                temp=temp->getSiguiente();
+            temp->getAnterior()->setSiguiente(temp->getSiguiente());
+            temp->getSiguiente()->setAnterior(temp->getAnterior());
+            temp->setSiguiente(NULL);
+            temp->setAnterior(NULL);
+        }
+        delete temp;
+        n--;
+        return true;
+    }else
+        return false;
 
 }
 
 Object* LinkedList::recupera(int posicion){
-	Nodo* temp = NULL;
-	if (posicion >= 1 && posicion <= n){
-		temp = inicio;
-		for (int i=1; i<=posicion; i++)
-			temp = temp->getSiguiente();
-		return temp->getItem();
-	}else
-		return NULL;
+    Nodo* temp = NULL;
+    if (posicion >= 1 && posicion <= n){
+        temp = inicio;
+        for (int i=1; i<=posicion; i++)
+            temp = temp->getSiguiente();
+        return temp->getItem();
+    }else
+        return NULL;
 }
 
 int LinkedList::localiza(Object* item){
-	Nodo* temp = NULL;
-	temp = inicio;
-	for (int i=1; i<= n; i++){
-		if (temp->getItem()->equals(item))
-			return i;
-		else
-			temp = temp->getSiguiente();
-	}
-	return -1;
+    Nodo* temp = NULL;
+    temp = inicio;
+    for (int i=1; i<= n; i++){
+        if (temp->getItem()->equals(item))
+            return i;
+        else
+            temp = temp->getSiguiente();
+    }
+    return -1;
 }
 
 Object* LinkedList::primero(){
-	if (n >= 1)
-		return inicio->getItem();
-	else	
-		return NULL;
+    if (n >= 1)
+        return inicio->getItem();
+    else
+        return NULL;
 }
 
 bool LinkedList::vacia(){
-	if (n>0)
-		return false;
-	else
-		return true;
+    if (n>0)
+        return false;
+    else
+        return true;
 }
