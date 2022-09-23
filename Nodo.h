@@ -20,8 +20,8 @@ class Nodo
 		
 	protected:
 		Nodo* siguiente;
-		Object* item;
 		Nodo* anterior;
+        Object* item;
 };
 
 #endif

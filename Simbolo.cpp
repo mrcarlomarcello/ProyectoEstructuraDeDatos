@@ -10,7 +10,10 @@ Simbolo::Simbolo()
 //definiendo las clases virtuales
 bool Simbolo::equals(Object* item){}
 
-string  Simbolo::toString() {}
+string  Simbolo::toString() {
+    temp += this->simbolo;
+    return temp;
+}
 
 void Simbolo::setSimbolo(char _simbolo) {
     this->simbolo = _simbolo;

@@ -7,21 +7,23 @@
 #define ARRAYSTACK_H
 
 #include "TDAPila.h"
-#include "Simbolo.h"
-const int MAX_SIZE = 10;
 
 class ArrayStack : public TDAPila{
     public:
+
         ArrayStack();
         ~ArrayStack();
-        void Push(Simbolo*);
-        Simbolo* Pop();
-        Simbolo* Top();
-        void printStack();
+
+        virtual void Push(Object*);
+        virtual Object* Pop();
+        virtual Object* Top();
+        virtual bool vacia();
+        virtual void printStack();
 
     private:
-        Simbolo** array;
+        Object** array;
         int top;
+        int MAX_SIZE;
 };
 
 

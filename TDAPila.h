@@ -3,19 +3,22 @@
 // Created by shello on 09-21-22.
 //
 
-#ifndef PROYECTOESTRUCTURADEDATOS_TDAPILA_H
-#define PROYECTOESTRUCTURADEDATOS_TDAPILA_H
+#ifndef TDAPILA_H
+#define TDAPILA_H
 
-#include "Simbolo.h"
+#include "Object.h"
 
-class TDAPila {
+class TDAPila{
+
     public:
-
-        virtual void Push(Simbolo*)=0;
-        virtual Simbolo* Pop()=0;
-        virtual Simbolo* Top()=0;
+        virtual void Push(Object*)=0;
+        virtual Object* Pop()=0;
+        virtual Object* Top()=0;
+        virtual bool vacia()=0;
         virtual void printStack()=0;
+
+    protected:
 };
 
 
-#endif //PROYECTOESTRUCTURADEDATOS_TDAPILA_H
+#endif //TDAPILA_H

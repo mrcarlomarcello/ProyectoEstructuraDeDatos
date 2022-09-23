@@ -1,5 +1,6 @@
 //
-// Created by shello on 09-18-22.
+// Created by dessire
+// ordered by shell0
 //
 
 #include "ArrayQueue.h"
@@ -28,34 +29,22 @@ ArrayQueue::~ArrayQueue()
     delete[] array;
 }
 
-Object* ArrayQueue::frente(){
-    if (n >= 1)
-        return array[0];
-    else
-        return NULL;
-}
+void ArrayQueue::pone_en_cola(Object* item){
 
-void ArrayQueue::imprimir(Object* item){
-    cout<< (item->toString()) << endl;
-}
-
-void ArrayQueue::imprime_cola(){
-    if (n<=0)
-        cout << "\nCola vacia\n";
-    else{
-        for(int i = inicio; i <= final; i++)
-            imprimir(array[i]);
+    if (item != nullptr) {
+        if (final != -1 && final == n)
+            cout << "\nCola llena\n";
+        else{
+            if (inicio == -1)
+                inicio = 0;
+            n++;
+            final++;
+            array[final] = item;
+            cout << "\nPuesto en cola realizado con exito\n";
+        }
     }
-}
+}//Queue
 
-void ArrayQueue::anula(){
-    if (n>0){
-        for (int i=n; i <= n; i--)
-            array[i] = NULL;
-    }
-}
-
-//Dequeue
 Object* ArrayQueue::saca_de_cola(){
     Object* dequeue = NULL;
     if (n>0){
@@ -76,23 +65,13 @@ Object* ArrayQueue::saca_de_cola(){
     }
     else
         return NULL;
-}
+}//Dequeue
 
-//Queue
-void ArrayQueue::pone_en_cola(Object* item){
-
-    if (item != nullptr) {
-        if (final != -1 && final == n)
-            cout << "\nCola llena\n";
-        else{
-            if (inicio == -1)
-                inicio = 0;
-            n++;
-            final++;
-            array[final] = item;
-            cout << "\nPuesto en cola realizado con exito\n";
-        }
-    }
+Object* ArrayQueue::frente(){
+    if (n >= 1)
+        return array[0];
+    else
+        return NULL;
 }
 
 bool ArrayQueue::vacia(){
@@ -101,3 +80,25 @@ bool ArrayQueue::vacia(){
     else
         return false;
 }
+
+void ArrayQueue::imprime_cola(){
+    if (n<=0)
+        cout << "\nCola vacia\n";
+    else{
+        for(int i = inicio; i <= final; i++)
+            imprimir(array[i]);
+    }
+}
+
+void ArrayQueue::imprimir(Object* item){
+    cout<< (item->toString()) << endl;
+}
+
+void ArrayQueue::anula(){
+    if (n>0){
+        for (int i=n; i <= n; i--)
+            array[i] = NULL;
+    }
+}
+
+

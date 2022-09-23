@@ -11,6 +11,8 @@ class Simbolo : public Object
 {
 	public:
         Simbolo();
+        ~Simbolo();
+
 		virtual bool equals(Object*);
         virtual string toString();
         virtual void setSimbolo(char);
@@ -18,6 +20,7 @@ class Simbolo : public Object
 
 	protected:
         char simbolo;
+        string temp;
 };
 
 #endif //SIMBOLO_H

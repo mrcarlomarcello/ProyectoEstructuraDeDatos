@@ -11,23 +11,24 @@ using namespace std;
 
 ArrayStack::ArrayStack() {
     this->top = -1;
-    this->array = new Simbolo*[MAX_SIZE];
+    this->MAX_SIZE=10;
+    this->array = new Object* [this->MAX_SIZE];
     for(int i=0; i<MAX_SIZE; i++)
         array[i] = NULL;
 }
 
 ArrayStack::~ArrayStack() {}
 
-void ArrayStack::Push(Simbolo* _simbolo) {
+void ArrayStack::Push(Object* _simbolo) {
     if (this->top >= (MAX_SIZE -1))
     {
-        cout << "Limite de la pila alcanzado\n";
+        cout << "Límite de la pila alcanzado, prueba 'Sacar' un elemento de la pila.\n";
         return;
     }
     this->array[++top] = _simbolo;
 }
 
-Simbolo* ArrayStack::Pop(){
+Object* ArrayStack::Pop(){
     if (top == -1)
     {
         cout << "Pila vacía\n";
@@ -37,7 +38,7 @@ Simbolo* ArrayStack::Pop(){
 
 }
 
-Simbolo* ArrayStack::Top()
+Object* ArrayStack::Top()
 {
     if (top == -1)
     {
@@ -47,4 +48,6 @@ Simbolo* ArrayStack::Top()
     return array[top];
 }
 
-void ArrayStack::printStack() {}
+bool ArrayStack::vacia(){}
+
+void ArrayStack::printStack(){}

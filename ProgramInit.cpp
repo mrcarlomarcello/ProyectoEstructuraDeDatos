@@ -8,9 +8,12 @@ using namespace std;
 #include "Alumno.h"
 #include "Simbolo.h"
 #include "ArrayList.h"
+#include "LinkedList.h"
 #include "ArrayStack.h"
 #include "ArrayQueue.h"
 #include "LinkedQueue.h"
+#include "TextoMenu.h"
+
 #include <iostream>
 ProgramInit::ProgramInit(){
 
@@ -20,28 +23,23 @@ ProgramInit::ProgramInit(){
     TDACola* cola = NULL;
     string nombre;
     string cuenta;
+    string simbolo;
     int posicion;
     int opciones;
     bool continuar;
     int contador = 0;
+    TextoMenu* Menu;
     //prueba
-    cout << "Hello World! Compile test 3\n" << endl;
+    cout << "Hello World! Compile test\n" << endl;
 
     do{
-        cout << "\nMenú Principal"
-             << "\n1. Trabajar con Listas"
-             << "\n2. Trabajar con Pilas"
-             << "\n3. Trabajar con Colas"
-             << "\n4. Salir" << endl;
+        Menu->printMainMenu();
         cin >> num;
 
         switch(num){
             case 1:
                 do{
-                    cout << "\nMenu Tipo de Lista"
-                         << "\n1. Trabajar con ArrayList"
-                         << "\n2. Trabajar con LinkedList"
-                         << "\n3. Regresar al menú principal" << endl;
+                    Menu->printMenuLista();
                     cin >> num;
 
                     if (num == 1){
@@ -52,17 +50,7 @@ ProgramInit::ProgramInit(){
                         lista = new ArrayList();
 
                         do{
-                            cout << "\nOperaciones de ArrayList"
-                                 << "\n1. Insertar Elemento"
-                                 << "\n2. Imprimir Elementos"
-                                 << "\n3. Buscar Elemento"
-                                 << "\n4. Borrar Elemento"
-                                 << "\n5. Ver si está vacía"
-                                 << "\n6. Obtener Elemento por Posición"
-                                 << "\n7. Obtener Siguiente"
-                                 << "\n8. Obtener Anterior"
-                                 << "\n9. Borrar todos los Elementos (Anula)"
-                                 << "\n10. Regresar al Menú Principal" << endl;
+                            Menu->printMenuArrayList();
                             cin >> num;
 
                             switch (num){
@@ -204,26 +192,15 @@ ProgramInit::ProgramInit(){
                         //lista = new LinkedList();
 
                         do{
-                            cout << "\nOperaciones de LinkedList"
-                                 << "\n1. Insertar Elemento"
-                                 << "\n2. Imprimir Elementos"
-                                 << "\n3. Buscar Elemento"
-                                 << "\n4. Borrar Elemento"
-                                 << "\n5. Ver si está vacía"
-                                 << "\n6. Obtener Elemento por Posición"
-                                 << "\n7. Obtener Siguiente"
-                                 << "\n8. Obtener Anterior"
-                                 << "\n9. Borrar todos los Elementos (Anula)"
-                                 << "\n10. Regresar al Menú Principal" << endl;
+                            Menu->printMenuLinkedList();
                             cin >> num;
 
                             switch (num){
                                 case 1:
                                 {
                                     cout << "\n1. Insertar Elemento" << endl;
-
-                                }
                                     break;
+                                }
                                 case 2:
                                 {
                                     cout << "\n2. Imprimir Elementos" << endl;
@@ -234,13 +211,11 @@ ProgramInit::ProgramInit(){
                                     cout << "\n3. Buscar Elemento" << endl;
                                     break;
                                 }
-
                                 case 4:
                                 {
                                     cout << "\n4. Borrar Elemento" << endl;
                                     break;
                                 }
-
                                 case 5:
                                 {
                                     cout << "\n5. Ver si está vacía" << endl;
@@ -275,10 +250,7 @@ ProgramInit::ProgramInit(){
 
             case 2:
                 do{
-                    cout << "\nMenu Tipo de Pila"
-                         << "\n1. Trabajar con ArrayStack"
-                         << "\n2. Trabajar con LinkedStack"
-                         << "\n3. Regresar al menu principal" << endl;
+                    Menu->printMenuPila();
                     cin >> num;
 
                     if (num == 1){
@@ -289,42 +261,46 @@ ProgramInit::ProgramInit(){
                         arrayStack = new ArrayStack();
 
                         do{
-                            cout << "\nOperaciones de ArrayStack"
-                                 << "\n1. “Empujar” (push)"
-                                 << "\n2. “Sacar” (pop)"
-                                 << "\n3. Ver Tope (top)"
-                                 << "\n4. Verificar si está vacía"
-                                 << "\n5. Imprimir elementos"
-                                 << "\n6. Regresar al Menú Principal" << endl;
+                            Menu->printMenuArrayStack();
                             cin >> num;
 
                             switch (num) {
-                                case 1:
-                                    cout << "Vamos a push @" << endl;
-                                    Simbolo* simStack;// = new Simbolo();
-                                    simStack->setSimbolo('@');
+                                case 1:{
+                                    cout << "Vamos a push @lgo: solo un simbolo a la vez" << endl;
+                                    cin >> simbolo;
+                                    Simbolo* simStack = new Simbolo();
+                                    simStack->setSimbolo(simbolo[0]);
                                     arrayStack->Push(simStack);
+                                    cout << "Listo, hemos agregado: " << simbolo[0] << endl;
                                     break;
-                                case 2:
-                                    cout << "not done yet" << endl;
+                                }                                    
+                                case 2:{
+                                    Object* simStack = new Simbolo();
+                                    simStack = arrayStack->Pop();                                    
+                                    cout << "not done yet" << simStack->toString()<< "Poped" << endl;
                                     break;
-                                case 3:
+                                }    
+                                case 3:{
                                     cout << "Tope:" << endl;
-                                    Simbolo* sim = arrayStack->Top();
-                                    cout << sim->getSimbolo() << endl;
+                                    Object* sim = arrayStack->Top();
+                                    cout << "God it worked..."<< sim->toString() << endl;
                                     break;
+                                }
+                                case 4:{
+                                    cout << "yeah not done..." << endl;
+                                    break;
+                                }                                   
+                                case 5:{
+                                    cout << "falta too " << endl;
+                                    break;
+                                }
+                                    
                             }
                         }while(num != 6);
 
                     }else if (num == 2){
                         do{
-                            cout << "\nOperaciones de LinkedStack"
-                                 << "\n1. “Empujar” (push)"
-                                 << "\n2. “Sacar” (pop)"
-                                 << "\n3. Ver Tope (top)"
-                                 << "\n4. Verificar si está vacía"
-                                 << "\n5. Imprimir elementos"
-                                 << "\n6. Regresar al Menú Principal" << endl;
+                            Menu->printMenuLinkedStack();
                             cin >> num;
                         }while(num != 6);
                     }
@@ -333,10 +309,7 @@ ProgramInit::ProgramInit(){
 
             case 3:
                 do{
-                    cout << "\nMenu Tipo de Cola"
-                         << "\n1. Trabajar con ArrayQueue"
-                         << "\n2. Trabajar con LinkedQueue"
-                         << "\n3. Regresar al menu principal" << endl;
+                    Menu->printMenuCola();
                     cin >> num;
 
                     if (num == 1){
@@ -347,13 +320,7 @@ ProgramInit::ProgramInit(){
                         cola = new ArrayQueue();
 
                         do{
-                            cout << "\nOperaciones de ArrayQueue"
-                                 << "\n1. Encolar (queue)"
-                                 << "\n2. Desencolar (dequeue)"
-                                 << "\n3. Ver Frente (peek)"
-                                 << "\n4. Verificar si está vacía"
-                                 << "\n5. Imprimir elementos"
-                                 << "\n6. Regresar al Menú Principal" << endl;
+                            Menu->printMenuArrayQueue();
                             cin >> num;
 
                             switch (num){
@@ -410,7 +377,6 @@ ProgramInit::ProgramInit(){
                                         cout << "\nCola Vacia\n";
                                     break;
                                 }
-
                                 case 4:
                                 {
                                     cout << "\n4. Verificar si está vacía" << endl;
@@ -420,7 +386,6 @@ ProgramInit::ProgramInit(){
                                         cout << "La cola no esta vacía\n";
                                     break;
                                 }
-
                                 case 5:
                                 {
                                     cout << "\n5. Imprimir elementos" << endl;
@@ -439,14 +404,9 @@ ProgramInit::ProgramInit(){
                         cola = new LinkedQueue();
 
                         do{
-                            cout << "\nOperaciones de LinkedQueue"
-                                 << "\n1. Encolar (queue)"
-                                 << "\n2. Desencolar (dequeue)"
-                                 << "\n3. Ver Frente (peek)"
-                                 << "\n4. Verificar si está vacía"
-                                 << "\n5. Imprimir elementos"
-                                 << "\n6. Regresar al Menú Principal" << endl;
+                            Menu->printMenuLinkedQueue();
                             cin >> num;
+
                             switch (num){
                                 case 1:
                                 {
@@ -501,7 +461,6 @@ ProgramInit::ProgramInit(){
                                         cout << "\nCola Vacia\n";
                                     break;
                                 }
-
                                 case 4:
                                 {
                                     cout << "\n4. Verificar si está vacía" << endl;
@@ -511,7 +470,6 @@ ProgramInit::ProgramInit(){
                                         cout << "La cola no esta vacía\n";
                                     break;
                                 }
-
                                 case 5:
                                 {
                                     cout << "\n5. Imprimir elementos" << endl;

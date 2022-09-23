@@ -4,7 +4,6 @@
 
 int main(int argc, char** argv) {
 	
-	ProgramInit();	
-
+	ProgramInit();
 	return 0;
 }
