@@ -93,14 +93,12 @@ ProgramInit::ProgramInit(){
                                         //lista->imprimir_lista();
                                         break;
                                     }
-
                                     case 2:
                                     {
                                         cout << "\n2. Imprimir Elementos" << endl;
                                         lista->imprimir_lista();
                                         break;
                                     }
-
                                     case 3:
                                     {
                                         cout << "\n3. Buscar Elemento" << endl;
@@ -110,7 +108,6 @@ ProgramInit::ProgramInit(){
                                         //lista->localiza();
                                         break;
                                     }
-
                                     case 4:
                                     {
                                         cout << "\n4. Borrar Elemento" << endl;
@@ -122,7 +119,6 @@ ProgramInit::ProgramInit(){
                                             cout << "\nEl elemento no se pudo eliminar" << endl;
                                         break;
                                     }
-
                                     case 5:
                                     {
                                         cout << "\n5. Ver si está vacía" << endl;
@@ -133,7 +129,6 @@ ProgramInit::ProgramInit(){
 
                                         break;
                                     }
-
                                     case 6:
                                     {
                                         cout << "\n6. Obtener Elemento por Posición" << endl;
@@ -147,7 +142,6 @@ ProgramInit::ProgramInit(){
                                             cout << "\nPosicion invalida" << endl;
                                         break;
                                     }
-
                                     case 7:
                                     {
                                         cout << "\n7. Obtener Siguiente" << endl;
@@ -160,7 +154,6 @@ ProgramInit::ProgramInit(){
                                             cout << "\nEl espacio siguiente esta vacio" << endl;
                                         break;
                                     }
-
                                     case 8:
                                     {
                                         cout << "\n8. Obtener Anterior" << endl;
@@ -173,7 +166,6 @@ ProgramInit::ProgramInit(){
                                             cout << "\nEl espacio anterior esta vacio" << endl;
                                         break;
                                     }
-
                                     case 9:
                                     {
                                         cout << "\n9. Borrar todos los Elementos (Anula)" << endl;
@@ -186,7 +178,6 @@ ProgramInit::ProgramInit(){
                             }while(num != 10);
                             break;
                         }
-
                         case 2:
                         {
                             if (lista)
@@ -305,7 +296,6 @@ ProgramInit::ProgramInit(){
                             }while(num != 6);
                             break;
                         }
-
                         case 2:{
                             //borra el stack
                             if (arrayStack)
