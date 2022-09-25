@@ -193,6 +193,36 @@ ProgramInit::ProgramInit(){
                                     case 1:
                                     {
                                         cout << "\n1. Insertar Elemento" << endl;
+                                        do{
+                                            cout << "\n1. Insertar Elemento" << endl;
+                                            cout << "\nIngrese el nombre:" << endl;
+                                            cin >> nombre;
+                                            cout << "\nIngrese la cuenta: " << endl;
+                                            cin >> cuenta;
+                                            cout << "\nIngrese la posicion: " << endl;
+                                            cin >> posicion;
+                                            Alumno* alumno = new Alumno(nombre, cuenta);
+                                            if (lista->inserta(alumno, posicion))
+                                                cout << "\nInsertado con exito\n";
+                                            else
+                                                cout << "\nNo se pudo insertar\n";
+
+                                            do{
+
+                                                if (contador > 0)
+                                                    cout << "\nEsa no es una de las opciones\n";
+                                                cout << "¿Desea seguir insertando? 1 = Si, 2 = No: \n";
+                                                cin >> opciones;
+                                                if (opciones == 1)
+                                                    continuar = true;
+                                                else if (opciones == 2)
+                                                    continuar = false;
+                                                contador++;
+
+                                            }while(opciones > 2);
+                                            contador = 0;
+
+                                        }while(continuar);
                                         break;
                                     }
                                     case 2:
