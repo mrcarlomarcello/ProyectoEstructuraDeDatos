@@ -202,6 +202,7 @@ ProgramInit::ProgramInit(){
                                             cout << "\nIngrese la posicion: " << endl;
                                             cin >> posicion;
                                             Alumno* alumno = new Alumno(nombre, cuenta);
+
                                             if (lista->inserta(alumno, posicion))
                                                 cout << "\nInsertado con exito\n";
                                             else
@@ -220,6 +221,7 @@ ProgramInit::ProgramInit(){
                                                 contador++;
 
                                             }while(opciones > 2);
+
                                             contador = 0;
 
                                         }while(continuar);
@@ -228,6 +230,7 @@ ProgramInit::ProgramInit(){
                                     case 2:
                                     {
                                         cout << "\n2. Imprimir Elementos" << endl;
+                                        lista->imprimir_lista();
                                         break;
                                     }
                                     case 3:

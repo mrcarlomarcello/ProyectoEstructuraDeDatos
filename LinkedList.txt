@@ -55,22 +55,23 @@ class LinkedList{
             n++
 
         bool inserta(item,posicion) –O(n)
+
             if posicion>=1 y posicion <=n+1
                 if posicion = n+1
                     return append(item)
                 else
                     newNode.setItem(item)
-                            temp = inicio
-                            for i = 1 to posicion
-                                temp = temp.getSiguiente
-                            temp.getAnterior.setSiguiente(newNode)
-                            newNode.setAnterior(temp.getAnterior)
-                            newNode.setSiguiente(temp)
-                            temp.setAnterior(newNode)
-                            n++
-                            return true
-                    else
-                        return false
+                    temp = inicio
+                    for i = 1 to posicion
+                        temp = temp.getSiguiente
+                    temp.getAnterior.setSiguiente(newNode)
+                    newNode.setAnterior(temp.getAnterior)
+                    newNode.setSiguiente(temp)
+                    temp.setAnterior(newNode)
+                    n++
+                    return true
+            else
+                return false
 
 
         object siguiente(posicion)  --O(n)

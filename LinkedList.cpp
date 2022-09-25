@@ -24,22 +24,25 @@ void LinkedList::anula(){
 
 bool LinkedList::inserta(Object* item, int posicion){
 
-    Nodo* newNode = new Nodo();
-    Nodo* temp = inicio;
-    newNode->setItem(item);
-
     if (posicion>=1 && posicion<=n+1){
+        Nodo* newNode = new Nodo();
+        //nodo raiz
+        if(this->n ==0)
+        {
+            newNode->setItem(item);
+            this->inicio = newNode;
+            this->final = this->inicio;
+        }
         if (posicion==n+1){
             append(item);
-        } else if (posicion == 1){
+        }
+
+        else{
+            newNode->setItem(item);
+            Nodo* temp = inicio;
             for (int i=1; i<=posicion; i++)
                 temp=temp->getSiguiente();
-            inicio->setAnterior(newNode);
-            newNode->setSiguiente(inicio);
-            inicio = newNode;
-        }else{
-            for (int i=1; i<=posicion; i++)
-                temp=temp->getSiguiente();
+
             temp->getAnterior()->setSiguiente(newNode);
             newNode->setAnterior(temp->getAnterior());
             newNode->setSiguiente(temp);
@@ -71,7 +74,8 @@ void LinkedList::append(Object* item){
 void LinkedList::imprimir_lista(){
     Nodo* temp = inicio;
     for(int i=1; i<=n; i++){
-        cout<<(temp->getItem()->toString());
+        cout<< (temp->getItem()->toString()) << endl;
+        temp = temp->getSiguiente();
     }
 }
 

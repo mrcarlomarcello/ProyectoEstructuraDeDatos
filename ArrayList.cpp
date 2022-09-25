@@ -59,6 +59,8 @@ Object* ArrayList::anterior(int posicion){
     return recupera(posicion-1);
 }
 
+void ArrayList::append(Object*){} //declaramos la funcion virtual
+
 void ArrayList::imprimir(Object* item){
 	cout<< (item->toString()) <<endl;
 }

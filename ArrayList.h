@@ -13,7 +13,7 @@ class ArrayList : public TDALista
 		virtual bool inserta(Object*,int);
 		virtual Object* siguiente(int);
 		virtual Object* anterior(int);
-		//virtual void append(Object*);
+		virtual void append(Object*);
 		void imprimir(Object*);
 		virtual void imprimir_lista(); 
 		virtual bool suprime(int);
