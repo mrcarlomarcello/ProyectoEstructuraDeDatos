@@ -23,6 +23,7 @@ void LinkedList::anula(){
 }
 
 bool LinkedList::inserta(Object* item, int posicion){
+
     Nodo* newNode = new Nodo();
     Nodo* temp = inicio;
     newNode->setItem(item);

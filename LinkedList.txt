@@ -1,0 +1,127 @@
+class Object {
+	public:
+		virtual bool equals(Object*) =0;
+		virtual string toString(Object*) =0;
+}
+
+class Nodo{
+	private:
+		Nodo* siguiente
+		Object* item
+		Nodo* anterior
+	public:
+		gets/sets
+}
+
+class LinkedList{
+	private:
+		Nodo* inicio
+		Nodo* final
+		int n
+	public:
+		Object recupera(posicion){ --O(n)
+			if posicion >= 1 y posicion <= n
+				temp = inicio
+				for i = 1 to posicion
+					temp = temp.getSiguiente
+				return temp.getItem
+			else
+				return null
+        }// recupera
+
+
+        posicion localiza(item){ --O(n)
+            temp = inicio
+            for i = 1 to n
+                if temp.getItem.equals(item)
+                    return i
+                else
+                    temp = temp.getSiguiente
+            return -1
+        }
+
+        Object primero() – O(1)
+            if n >= 1
+                return inicio.getItem
+            else
+                return null
+
+        bool append(item) –O(1)
+            Nodo* newNode = new Nodo();
+            newNode.setItem(item)
+            final.setSiguiente(newNode)
+            newNode.setAnterior(final)
+            final = newNode
+            n++
+
+        bool inserta(item,posicion) –O(n)
+            if posicion>=1 y posicion <=n+1
+                if posicion = n+1
+                    return append(item)
+                else
+                    newNode.setItem(item)
+                            temp = inicio
+                            for i = 1 to posicion
+                                temp = temp.getSiguiente
+                            temp.getAnterior.setSiguiente(newNode)
+                            newNode.setAnterior(temp.getAnterior)
+                            newNode.setSiguiente(temp)
+                            temp.setAnterior(newNode)
+                            n++
+                            return true
+                    else
+                        return false
+
+
+        object siguiente(posicion)  --O(n)
+            return recupera(posición+1)
+
+        object anterior(posicion) --O(n)
+            return recupera(posición-1)
+
+
+
+        object suprime(posicion) –O(n)
+            if posicion >= 1 y posicion <= n
+                if posicion = 1
+                    temp = inicio
+                    inicio = inicio.getSiguiente
+                    temp.setSiguiente(null)
+                    inicio.setAnterior(null)
+
+                else if posicion = n
+                    temp = final
+                    final = final.getAnterior
+                    final.setSiguiente(null)
+                    temp.setAnterior(null)
+
+
+                else
+                    temp = inicio
+                            for i = 1 to posicion
+                                temp = temp.getSiguiente
+                            temp.getAnterior.setSiguiente(temp.getSiguiente)
+                            temp.getSiguiente.setAnterior(temp.getAnterior)
+                            temp.setSiguiente(null)
+                            temp.setAnterior(null)
+                        end if
+                        n--
+
+        void anula()
+            //java –O(1)
+            inicio = null
+            final = null
+            n = 0
+
+            //c++ --O(n)
+            delete inicio //borrar en cascada todos los nodos O(n)
+            final = null
+            n=0
+
+                void imprime_lista() –O(n)
+                temp = inicio
+                    for i = 1 to posicion
+                        cout temp.getItem.toString
+                        temp = temp.getSiguiente
+
+        }
