@@ -4,11 +4,16 @@
 using namespace std;
 #include "ProgramInit.h"
 #include "TDALista.h"
+#include "TDAPila.h"
 #include "Alumno.h"
+#include "Simbolo.h"
 #include "ArrayList.h"
+#include "LinkedList.h"
 #include "ArrayStack.h"
+#include "LinkedStack.h"
 #include "ArrayQueue.h"
 #include "LinkedQueue.h"
+#include "TextoMenu.h"
 
 #include <iostream>
 
@@ -28,25 +33,23 @@ ProgramInit::ProgramInit(){
 
     int num = 0;
     TDALista* lista = NULL;
+    TDAPila* arrayStack = NULL;
     TDACola* cola = NULL;
-    //ArrayStack* arrayStack;
     string nombre;
     string cuenta;
+    string simbolo;
     int posicion;
     int opciones;
     bool continuar = true;
     bool seguir;
     int contador = 0;
     char menu[5];
+    TextoMenu* Menu;
     //prueba
     cout << "Hello World! Compile test\n" << endl;
     
     do{
-        cout << "\nMenú Principal"
-             << "\n1. Trabajar con Listas"
-             << "\n2. Trabajar con Pilas"
-             << "\n3. Trabajar con Colas"
-             << "\n4. Salir" << endl;
+        Menu->printMainMenu();
         cin >> menu;
         
 		if (!EsUnNumero(menu) || (stoi(menu) > 9))
@@ -57,10 +60,7 @@ ProgramInit::ProgramInit(){
         switch(num){
             case 1:
                 do{
-                    cout << "\nMenu Tipo de Lista"
-                         << "\n1. Trabajar con ArrayList"
-                         << "\n2. Trabajar con LinkedList"
-                         << "\n3. Regresar al menú principal" << endl;
+                    Menu->printMenuLista();
                     cin >> menu;
 		
 					if (!EsUnNumero(menu) || (stoi(menu) > 3))
@@ -76,17 +76,7 @@ ProgramInit::ProgramInit(){
                         lista = new ArrayList();
 
                         do{
-                            cout << "\nOperaciones de ArrayList"
-                                 << "\n1. Insertar Elemento"
-                                 << "\n2. Imprimir Elementos"
-                                 << "\n3. Buscar Elemento"
-                                 << "\n4. Borrar Elemento"
-                                 << "\n5. Ver si está vacía"
-                                 << "\n6. Obtener Elemento por Posición"
-                                 << "\n7. Obtener Siguiente"
-                                 << "\n8. Obtener Anterior"
-                                 << "\n9. Borrar todos los Elementos (Anula)"
-                                 << "\n10. Regresar al Menú Principal" << endl;
+                            Menu->printMenuArrayList();
                             cin >> menu;
 		
 							if (!EsUnNumero(menu) || (stoi(menu) > 10))
@@ -146,10 +136,19 @@ ProgramInit::ProgramInit(){
                                 case 3:
                                 {
                                     cout << "\n3. Buscar Elemento" << endl;
-                                    cout << "\nIngrese el numero de cuenta del usuario: " << endl;
+                                    cout << "\nIngrese el nombre:" << endl;
+                                    cin >> nombre;
+                                    cout << "\nIngrese la cuenta: " << endl;
                                     cin >> cuenta;
-									continuar = true;
-                                    //lista->localiza();
+
+                                    Alumno* alumno = new Alumno(nombre, cuenta);
+                                    int query = lista->localiza(alumno);
+
+                                    if (query == -1)
+                                        cout << "Sí existe" << endl;
+                                    else
+                                        cout << "Not found" << endl;
+
                                     break;
                                 }
 
@@ -250,17 +249,7 @@ ProgramInit::ProgramInit(){
                         //lista = new LinkedList();
                         
                         do{
-                            cout << "\nOperaciones de LinkedList"
-                                 << "\n1. Insertar Elemento"
-                                 << "\n2. Imprimir Elementos"
-                                 << "\n3. Buscar Elemento"
-                                 << "\n4. Borrar Elemento"
-                                 << "\n5. Ver si está vacía"
-                                 << "\n6. Obtener Elemento por Posición"
-                                 << "\n7. Obtener Siguiente"
-                                 << "\n8. Obtener Anterior"
-                                 << "\n9. Borrar todos los Elementos (Anula)"
-                                 << "\n10. Regresar al Menú Principal" << endl;
+                            Menu->printMenuLinkedList();
                             cin >> menu;
                             
                             if (!EsUnNumero(menu) || (stoi(menu) > 10))
@@ -272,13 +261,44 @@ ProgramInit::ProgramInit(){
                                 case 1:
                                 {
                                     cout << "\n1. Insertar Elemento" << endl;
-                                    continuar = true;
+                                    do{
+                                        cout << "\n1. Insertar Elemento" << endl;
+                                        cout << "\nIngrese el nombre:" << endl;
+                                        cin >> nombre;
+                                        cout << "\nIngrese la cuenta: " << endl;
+                                        cin >> cuenta;
+                                        cout << "\nIngrese la posicion: " << endl;
+                                        cin >> posicion;
+                                        Alumno* alumno = new Alumno(nombre, cuenta);
 
-                                }
+                                        if (lista->inserta(alumno, posicion))
+                                            cout << "\nInsertado con exito\n";
+                                        else
+                                            cout << "\nNo se pudo insertar\n";
+
+                                        do{
+
+                                            if (contador > 0)
+                                                cout << "\nEsa no es una de las opciones\n";
+                                            cout << "¿Desea seguir insertando? 1 = Si, 2 = No: \n";
+                                            cin >> opciones;
+                                            if (opciones == 1)
+                                                continuar = true;
+                                            else if (opciones == 2)
+                                                continuar = false;
+                                            contador++;
+
+                                        }while(opciones > 2);
+
+                                        contador = 0;
+
+                                    }while(continuar);
                                     break;
+                                }
                                 case 2:
                                 {
                                     cout << "\n2. Imprimir Elementos" << endl;
+                                    lista->imprimir_lista();
                                     continuar = true;
                                     break;
                                 }
@@ -350,10 +370,7 @@ ProgramInit::ProgramInit(){
 
             case 2:
                 do{
-                    cout << "\nMenu Tipo de Pila"
-                         << "\n1. Trabajar con ArrayStack"
-                         << "\n2. Trabajar con LinkedStack"
-                         << "\n3. Regresar al menu principal" << endl;
+                    Menu->printMenuPila();
                     cin >> menu;
                     
                     if (!EsUnNumero(menu) || (stoi(menu) > 3))
@@ -363,18 +380,13 @@ ProgramInit::ProgramInit(){
 
                     if (num == 1){
                     	
-                        /*if (arrayStack)
+                        if (arrayStack)
                             delete arrayStack;
-                        arrayStack = new ArrayStack();*/
+                            
+                        arrayStack = new ArrayStack();
 
                         do{
-                            cout << "\nOperaciones de ArrayStack"
-                                 << "\n1. “Empujar” (push)"
-                                 << "\n2. “Sacar” (pop)"
-                                 << "\n3. Ver Tope (top)"
-                                 << "\n4. Verificar si está vacía"
-                                 << "\n5. Imprimir elementos"
-                                 << "\n6. Regresar al Menú Principal" << endl;
+                            Menu->printMenuArrayStack();
                             cin >> menu;
                             
                             if (!EsUnNumero(menu) || (stoi(menu) > 6))
@@ -382,32 +394,43 @@ ProgramInit::ProgramInit(){
 							else
 								num = stoi(menu);
 
-                            cuenta = "0001";//test
                             switch (num) {
-                                case 1:
-                                    /*cout << "Vamos a push prueba y 1" << endl;
-                                    nombre = "prueba";
-                                    //cuenta = "0001";
-                                    Alumno* alumno = new Alumno(nombre, cuenta);
-                                    arrayStack->Push(alumno);
-                                    cuenta = "0002";*/
+                                case 1:{
+                                    cout << "[     Vamos a push @lgo: solo un simbolo a la vez     ]" << endl;
+                                    cin >> simbolo;
+                                    Simbolo* simStack = new Simbolo();
+                                    simStack->setSimbolo(simbolo[0]);
+                                    arrayStack->Push(simStack);
+                                    cout << "[ Listo, hemos agregado: " << simbolo[0] << " ] "<< endl;
                                     continuar = true;
-                                    break;
-                                case 2:
-                                    break;
-                                case 3:
-                                    /*cout << "Tope:" << endl;
-                                    Alumno* alumno = arrayStack->Top();
-                                    cout << alumno->getNombre() << endl;
-                                    cout << alumno->getCuenta() << end;*/
+									break;
+                                }
+                                case 2:{
+                                    Object* popedItem = arrayStack->Pop();
+                                    cout << "[ Listo hemos Poped-out: " << popedItem->toString()<< " << Poped ]" << endl;
                                     continuar = true;
-                                    break;
-                                case 4:
-                                	continuar = true;
-                                    break;
-                                case 5:
-                                	continuar = true;
-                                    break;
+									break;
+                                }
+                                case 3:{
+                                    cout << "[    Veamos el Tope de la pila   :    ]" << endl;
+                                    Object* sim = arrayStack->Top();
+                                    cout << "[   God it worked... este es el tope : "<< sim->toString() << " ] "<< endl;
+                                    continuar = true;
+									break;
+                                }
+                                case 4:{
+                                    cout << "yeah not done... veamos si funciona Vacía: " << endl;
+                                    string temp = arrayStack->vacia() ? "true" : "false";
+                                    cout <<  temp << endl;
+                                    continuar = true;
+									break;
+                                }
+                                case 5:{
+                                    arrayStack->printStack();
+                                    cout << "falta too " << endl;
+                                    continuar = true;
+									break;
+                                }
                                 case 6:
 					            {
 									continuar = false;
@@ -422,14 +445,14 @@ ProgramInit::ProgramInit(){
                         }while(continuar);
 
                     }else if (num == 2){
+                    	//borra el stack
+                        if (arrayStack)
+                            delete arrayStack;
+
+                        arrayStack = new LinkedStack();
+                            
                         do{
-                            cout << "\nOperaciones de LinkedStack"
-                                 << "\n1. “Empujar” (push)"
-                                 << "\n2. “Sacar” (pop)"
-                                 << "\n3. Ver Tope (top)"
-                                 << "\n4. Verificar si está vacía"
-                                 << "\n5. Imprimir elementos"
-                                 << "\n6. Regresar al Menú Principal" << endl;
+                            Menu->printMenuLinkedStack();
                             cin >> menu;
                             
                             if (!EsUnNumero(menu) || (stoi(menu) > 6))
@@ -438,20 +461,41 @@ ProgramInit::ProgramInit(){
 								num = stoi(menu);
 							
 							switch (num) {
-                                case 1:                       
+                                case 1:{
+                                    cout << "[     Vamos a push @lgo: solo un simbolo a la vez     ]" << endl;
+                                    cin >> simbolo;
+                                    Simbolo* simStack = new Simbolo();
+                                    simStack->setSimbolo(simbolo[0]);
+                                    arrayStack->Push(simStack);
+                                    cout << "[ Listo, hemos agregado: " << simbolo[0] << " ] "<< endl;
+                                    continuar = true;
+									break;
+                                }
+                                case 2:{
+                                    Object* popedItem = arrayStack->Pop();
+                                    cout << "[ Listo hemos Poped-out: " << popedItem->toString()<< " << Poped ]" << endl;
+                                    continuar = true;
+									break;
+                                }
+                                case 3:{
+                                    cout << "[    Veamos el Tope de la pila   :    ]" << endl;
+                                    Object* sim = arrayStack->Top();
+                                    cout << "[   God it worked... este es el tope : "<< sim->toString() << " ] "<< endl;
+                                    continuar = true;
+									break;
+                                }
+                                case 4:{
+                                    cout << "yeah not done... veamos si funciona Vacía: " << endl;
+                                    string temp = arrayStack->vacia() ? "true" : "false";
+                                    cout <<  temp << endl;
                                     continuar = true;
                                     break;
-                                case 2:
-                                    break;
-                                case 3:
+                                }
+                                case 5:{
+                                    arrayStack->printStack();
                                     continuar = true;
                                     break;
-                                case 4:
-                                	continuar = true;
-                                    break;
-                                case 5:
-                                	continuar = true;
-                                    break;
+                                }
                                 case 6:
 					            {
 									continuar = false;
@@ -475,10 +519,7 @@ ProgramInit::ProgramInit(){
 
             case 3:
                 do{
-                    cout << "\nMenu Tipo de Cola"
-                         << "\n1. Trabajar con ArrayQueue"
-                         << "\n2. Trabajar con LinkedQueue"
-                         << "\n3. Regresar al menu principal" << endl;
+                    Menu->printMenuCola();
                     cin >> menu;
                     
                     if (!EsUnNumero(menu) || (stoi(menu) > 3))
@@ -494,13 +535,7 @@ ProgramInit::ProgramInit(){
                         cola = new ArrayQueue();
 
                         do{
-                            cout << "\nOperaciones de ArrayQueue"
-                                 << "\n1. Encolar (queue)"
-                                 << "\n2. Desencolar (dequeue)"
-                                 << "\n3. Ver Frente (peek)"
-                                 << "\n4. Verificar si está vacía"
-                                 << "\n5. Imprimir elementos"
-                                 << "\n6. Regresar al Menú Principal" << endl;
+                            Menu->printMenuArrayQueue();
                             cin >> menu;
 		
 							if (!EsUnNumero(menu) || (stoi(menu) > 6))
@@ -512,32 +547,15 @@ ProgramInit::ProgramInit(){
                                 case 1:
                                 {
                                     cout << "\n1. Encolar (queue)" << endl;
-                                    do{
-                                		cout << "\n1. Insertar Elemento" << endl;
-	                                    cout << "\nIngrese el nombre:" << endl;
-	                                    cin >> nombre;
-	                                    cout << "\nIngrese la cuenta: " << endl;
-	                                    cin >> cuenta;
-	                                    Alumno* alumno = new Alumno(nombre, cuenta);
-	                                    cola->pone_en_cola(alumno);
-	                                    
-	                                    do{
-	                                    	
-	                                    	if (contador > 0)
-	                                    		cout << "\nEsa no es una de las opciones\n";
-	                                    	cout << "¿Desea seguir insertando? 1 = Si, 2 = No: \n";
-	                                    	cin >> opciones;
-		                                    if (opciones == 1)
-		                                    	continuar = true;
-		                                    else if (opciones == 2)
-		                                    	continuar = false;
-		                                    contador++;
-	                                    	
-										}while(opciones > 2);
-										contador = 0;
-	                                    
-									}while(continuar);
-									
+                                    
+                                	cout << "\n1. Insertar Elemento" << endl;
+	                                cout << "\nIngrese el nombre:" << endl;
+	                                cin >> nombre;
+	                                cout << "\nIngrese la cuenta: " << endl;
+	                                cin >> cuenta;
+	                                Alumno* alumno = new Alumno(nombre, cuenta);
+	                                cola->pone_en_cola(alumno);
+
 									break;
                                 }
                                 case 2:
@@ -601,13 +619,7 @@ ProgramInit::ProgramInit(){
                         cola = new LinkedQueue();
                         
                         do{
-                            cout << "\nOperaciones de LinkedQueue"
-                                 << "\n1. Encolar (queue)"
-                                 << "\n2. Desencolar (dequeue)"
-                                 << "\n3. Ver Frente (peek)"
-                                 << "\n4. Verificar si está vacía"
-                                 << "\n5. Imprimir elementos"
-                                 << "\n6. Regresar al Menú Principal" << endl;
+                            Menu->printMenuLinkedQueue();
                             cin >> menu;
 		
 							if (!EsUnNumero(menu) || (stoi(menu) > 6))
@@ -619,31 +631,14 @@ ProgramInit::ProgramInit(){
                                 case 1:
                                 {
                                     cout << "\n1. Encolar (queue)" << endl;
-                                    do{
-                                		cout << "\n1. Insertar Elemento" << endl;
-	                                    cout << "\nIngrese el nombre:" << endl;
-	                                    cin >> nombre;
-	                                    cout << "\nIngrese la cuenta: " << endl;
-	                                    cin >> cuenta;
-	                                    Alumno* alumno = new Alumno(nombre, cuenta);
-	                                    cola->pone_en_cola(alumno);
-	                                    
-	                                    do{
-	                                    	
-	                                    	if (contador > 0)
-	                                    		cout << "\nEsa no es una de las opciones\n";
-	                                    	cout << "¿Desea seguir insertando? 1 = Si, 2 = No: \n";
-	                                    	cin >> opciones;
-		                                    if (opciones == 1)
-		                                    	continuar = true;
-		                                    else if (opciones == 2)
-		                                    	continuar = false;
-		                                    contador++;
-	                                    	
-										}while(opciones > 2);
-										contador = 0;
-	                                    
-									}while(continuar);
+                                
+                                	cout << "\n1. Insertar Elemento" << endl;
+	                                cout << "\nIngrese el nombre:" << endl;
+	                                cin >> nombre;
+	                                cout << "\nIngrese la cuenta: " << endl;
+	                                cin >> cuenta;
+	                                Alumno* alumno = new Alumno(nombre, cuenta);
+	                                cola->pone_en_cola(alumno);
 									
 									break;
                                 }

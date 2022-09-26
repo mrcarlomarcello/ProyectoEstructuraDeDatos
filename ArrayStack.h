@@ -2,26 +2,30 @@
 //
 // Created by shello on 09-18-22.
 //
-/*
+
 #ifndef ARRAYSTACK_H
 #define ARRAYSTACK_H
 
-#include "Object.h"
-const int MAX_SIZE = 10;
+#include "TDAPila.h"
 
-class ArrayStack {
+class ArrayStack : public TDAPila{
     public:
+
         ArrayStack();
         ~ArrayStack();
-        void Push(Object*);
-        Object* Pop();
-        Object* Top();
-        void printStack();
+
+        virtual void Push(Object*);
+        virtual Object* Pop();
+        virtual Object* Top();
+        virtual bool vacia();
+        virtual void printStack();
 
     private:
-        Object** StackDeAlumnos;
+        Object** array;
         int top;
+        int MAX_SIZE;
+        virtual void recorrerPila(int);
 };
 
+
 #endif //ARRAYSTACK_H
-*/
