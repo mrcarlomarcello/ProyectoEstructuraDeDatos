@@ -31,24 +31,25 @@ bool LinkedList::inserta(Object* item, int posicion){
         {
             newNode->setItem(item);
             this->inicio = newNode;
-            this->final = this->inicio;
+            this->final = newNode;
+            n++;
         }
-        if (posicion==n+1){
+        else if (posicion==n+1){
             append(item);
         }
-
         else{
             newNode->setItem(item);
             Nodo* temp = inicio;
-            for (int i=1; i<=posicion; i++)
+            
+            for (int i=1; i<posicion; i++)
                 temp=temp->getSiguiente();
-
             temp->getAnterior()->setSiguiente(newNode);
             newNode->setAnterior(temp->getAnterior());
             newNode->setSiguiente(temp);
             temp->setAnterior(newNode);
+            n++;
         }
-        n++;
+
         return true;
     }else
         return false;
