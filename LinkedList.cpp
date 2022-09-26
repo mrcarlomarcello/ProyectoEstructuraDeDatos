@@ -40,7 +40,7 @@ bool LinkedList::inserta(Object* item, int posicion){
         else{
             newNode->setItem(item);
             Nodo* temp = inicio;
-            
+
             for (int i=1; i<posicion; i++)
                 temp=temp->getSiguiente();
             temp->getAnterior()->setSiguiente(newNode);

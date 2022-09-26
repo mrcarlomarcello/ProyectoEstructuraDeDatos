@@ -102,10 +102,19 @@ ProgramInit::ProgramInit(){
                                     case 3:
                                     {
                                         cout << "\n3. Buscar Elemento" << endl;
-                                        cout << "\nIngrese el numero de cuenta del usuario: " << endl;
+                                        cout << "\nIngrese el nombre:" << endl;
+                                        cin >> nombre;
+                                        cout << "\nIngrese la cuenta: " << endl;
                                         cin >> cuenta;
 
-                                        //lista->localiza();
+                                        Alumno* alumno = new Alumno(nombre, cuenta);
+                                        int query = lista->localiza(alumno);
+
+                                        if (query == -1)
+                                            cout << "Sí existe" << endl;
+                                        else
+                                            cout << "Not found" << endl;
+
                                         break;
                                     }
                                     case 4:
