@@ -1,7 +1,6 @@
 #pragma once
 //
-// Created by dessire
-// ordered by shell0
+// Created by shello on 09-18-22.
 //
 
 #ifndef ARRAYQUEUE_H
@@ -11,25 +10,31 @@
 
 class ArrayQueue : public TDACola
 {
-public:
-
-    ArrayQueue();
-    ~ArrayQueue();
-
-    virtual void pone_en_cola(Object*);//Queue
-    virtual Object* saca_de_cola();//Dequeue
-    virtual Object* frente();//peek
-    virtual bool vacia();
-    virtual void imprime_cola();
-    void imprimir(Object* item);
-    virtual void anula();
-
-protected:
-    int capacidad;
-    int n;
-    int inicio;
-    int final;
-    Object** array;
+	public:
+		ArrayQueue();
+		~ArrayQueue();
+		
+		virtual Object* frente();
+		
+		virtual void imprime_cola();
+		
+		void imprimir(Object* item);
+		
+		virtual void anula();
+		
+		//Dequeue
+		virtual Object* saca_de_cola(); 
+		
+		//Queue
+		virtual void pone_en_cola(Object*);
+		
+		virtual bool vacia();
+	protected:
+		int capacidad;
+		int n;
+		int inicio;
+		int final;
+		Object** array;
 };
 
 #endif //ARRAYQUEUE_H

@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef TDALISTA_H
 #define TDALISTA_H
 

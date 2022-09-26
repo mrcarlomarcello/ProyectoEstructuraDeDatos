@@ -8,6 +8,7 @@ Alumno::Alumno()
 	this->cuenta = "";
 }
 
+
 Alumno::Alumno(string _nombre, string _cuenta)
 {
 	this->nombre = _nombre;
