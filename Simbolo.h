@@ -10,17 +10,17 @@ using std::string;
 class Simbolo : public Object
 {
 	public:
-        Simbolo();
-        ~Simbolo();
+                Simbolo();
+                ~Simbolo();
 
-		virtual bool equals(Object*);
-        virtual string toString();
-        virtual void setSimbolo(char);
-        virtual char getSimbolo();
+                        virtual bool equals(Object*);
+                virtual string toString();
+                virtual void setSimbolo(char);
+                virtual char getSimbolo();
 
 	protected:
-        char simbolo;
-        string temp;
+                char simbolo;
+                string temp;
 };
 
 #endif //SIMBOLO_H

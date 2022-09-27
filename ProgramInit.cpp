@@ -31,7 +31,7 @@ ProgramInit::ProgramInit(){
     int contador = 0;
     TextoMenu* Menu;
     //prueba
-    cout << "Hello World! Compile test\n" << endl;
+    //cout << "Hello World! Compile test\n" << endl;
 
     do{
         Menu->printMainMenu();
@@ -473,31 +473,14 @@ ProgramInit::ProgramInit(){
                                     case 1:
                                     {
                                         cout << "\n1. Encolar (queue)" << endl;
-                                        do{
-                                            cout << "\n1. Insertar Elemento" << endl;
-                                            cout << "\nIngrese el nombre:" << endl;
-                                            cin >> nombre;
-                                            cout << "\nIngrese la cuenta: " << endl;
-                                            cin >> cuenta;
-                                            Alumno* alumno = new Alumno(nombre, cuenta);
-                                            cola->pone_en_cola(alumno);
 
-                                            do{
-
-                                                if (contador > 0)
-                                                    cout << "\nEsa no es una de las opciones\n";
-                                                cout << "¿Desea seguir insertando? 1 = Si, 2 = No: \n";
-                                                cin >> opciones;
-                                                if (opciones == 1)
-                                                    continuar = true;
-                                                else if (opciones == 2)
-                                                    continuar = false;
-                                                contador++;
-
-                                            }while(opciones > 2);
-                                            contador = 0;
-
-                                        }while(continuar);
+                                        cout << "\n1. Insertar Elemento" << endl;
+                                        cout << "\nIngrese el nombre:" << endl;
+                                        cin >> nombre;
+                                        cout << "\nIngrese la cuenta: " << endl;
+                                        cin >> cuenta;
+                                        Alumno* alumno = new Alumno(nombre, cuenta);
+                                        cola->pone_en_cola(alumno);
 
                                         break;
                                     }
@@ -523,6 +506,7 @@ ProgramInit::ProgramInit(){
                                             cout << "\nCola Vacia\n";
                                         break;
                                     }
+
                                     case 4:
                                     {
                                         cout << "\n4. Verificar si está vacía" << endl;
@@ -532,11 +516,22 @@ ProgramInit::ProgramInit(){
                                             cout << "La cola no esta vacía\n";
                                         break;
                                     }
+
                                     case 5:
                                     {
                                         cout << "\n5. Imprimir elementos" << endl;
                                         cola->imprime_cola();
                                         break;
+                                    }
+                                    case 6:
+                                    {
+                                        continuar = false;
+                                        break;
+                                    }
+                                    default:
+                                    {
+                                        cout << "\nOpción invalida" << endl;
+                                        continuar = true;
                                     }
                                 }
 
@@ -558,31 +553,14 @@ ProgramInit::ProgramInit(){
                                     case 1:
                                     {
                                         cout << "\n1. Encolar (queue)" << endl;
-                                        do{
-                                            cout << "\n1. Insertar Elemento" << endl;
-                                            cout << "\nIngrese el nombre:" << endl;
-                                            cin >> nombre;
-                                            cout << "\nIngrese la cuenta: " << endl;
-                                            cin >> cuenta;
-                                            Alumno* alumno = new Alumno(nombre, cuenta);
-                                            cola->pone_en_cola(alumno);
 
-                                            do{
-
-                                                if (contador > 0)
-                                                    cout << "\nEsa no es una de las opciones\n";
-                                                cout << "¿Desea seguir insertando? 1 = Si, 2 = No: \n";
-                                                cin >> opciones;
-                                                if (opciones == 1)
-                                                    continuar = true;
-                                                else if (opciones == 2)
-                                                    continuar = false;
-                                                contador++;
-
-                                            }while(opciones > 2);
-                                            contador = 0;
-
-                                        }while(continuar);
+                                        cout << "\n1. Insertar Elemento" << endl;
+                                        cout << "\nIngrese el nombre:" << endl;
+                                        cin >> nombre;
+                                        cout << "\nIngrese la cuenta: " << endl;
+                                        cin >> cuenta;
+                                        Alumno* alumno = new Alumno(nombre, cuenta);
+                                        cola->pone_en_cola(alumno);
 
                                         break;
                                     }
@@ -608,6 +586,7 @@ ProgramInit::ProgramInit(){
                                             cout << "\nCola Vacia\n";
                                         break;
                                     }
+
                                     case 4:
                                     {
                                         cout << "\n4. Verificar si está vacía" << endl;
@@ -617,11 +596,22 @@ ProgramInit::ProgramInit(){
                                             cout << "La cola no esta vacía\n";
                                         break;
                                     }
+
                                     case 5:
                                     {
                                         cout << "\n5. Imprimir elementos" << endl;
                                         cola->imprime_cola();
                                         break;
+                                    }
+                                    case 6:
+                                    {
+                                        continuar = false;
+                                        break;
+                                    }
+                                    default:
+                                    {
+                                        cout << "\nOpción invalida" << endl;
+                                        continuar = true;
                                     }
                                 }
 
