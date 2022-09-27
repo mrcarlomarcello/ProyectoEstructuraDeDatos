@@ -330,7 +330,7 @@ ProgramInit::ProgramInit(){
 
                                 switch (num) {
                                     case 1:{
-                                        cout << "[     Vamos a push @lgo: solo un simbolo a la vez     ]" << endl;
+                                        cout << "[     Vamos a push un simbolo a la vez     ]" << endl;
                                         cin >> simbolo;
                                         Simbolo* simStack = new Simbolo();
                                         simStack->setSimbolo(simbolo[0]);
@@ -346,18 +346,17 @@ ProgramInit::ProgramInit(){
                                     case 3:{
                                         cout << "[    Veamos el Tope de la pila   :    ]" << endl;
                                         Object* sim = arrayStack->Top();
-                                        cout << "[   God it worked... este es el tope : "<< sim->toString() << " ] "<< endl;
+                                        cout << "[   Tope : "<< sim->toString() << " ] "<< endl;
                                         break;
                                     }
                                     case 4:{
-                                        cout << "yeah not done... veamos si funciona Vacía: " << endl;
+                                        cout << "Está Vacía?: " << endl;
                                         string temp = arrayStack->vacia() ? "true" : "false";
                                         cout <<  temp << endl;
                                         break;
                                     }
                                     case 5:{
-                                        arrayStack->printStack();
-                                        cout << "falta too " << endl;
+                                        arrayStack->printStack();                                        
                                         break;
                                     }
 
@@ -378,7 +377,7 @@ ProgramInit::ProgramInit(){
 
                                 switch (num) {
                                     case 1:{
-                                        cout << "[     Vamos a push @lgo: solo un simbolo a la vez     ]" << endl;
+                                        cout << "[     Vamos a push un simbolo a la vez     ]" << endl;
                                         cin >> simbolo;
                                         Simbolo* simStack = new Simbolo();
                                         simStack->setSimbolo(simbolo[0]);
@@ -394,17 +393,17 @@ ProgramInit::ProgramInit(){
                                     case 3:{
                                         cout << "[    Veamos el Tope de la pila   :    ]" << endl;
                                         Object* sim = arrayStack->Top();
-                                        cout << "[   God it worked... este es el tope : "<< sim->toString() << " ] "<< endl;
+                                        cout << "[   Tope : "<< sim->toString() << " ] "<< endl;
                                         break;
                                     }
                                     case 4:{
-                                        cout << "yeah not done... veamos si funciona Vacía: " << endl;
+                                        cout << "Está Vacía?: " << endl;
                                         string temp = arrayStack->vacia() ? "true" : "false";
                                         cout <<  temp << endl;
                                         break;
                                     }
                                     case 5:{
-                                        arrayStack->printStack();
+                                        arrayStack->printStack();                                        
                                         break;
                                     }
 
