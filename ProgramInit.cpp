@@ -135,7 +135,7 @@ ProgramInit::ProgramInit(){
                                             cout << "La lista esta vacía\n";
                                         else
                                             cout << "La lista no esta vacía\n";
-
+                                        continuar = true;
                                         break;
                                     }
                                     case 6:
@@ -149,6 +149,7 @@ ProgramInit::ProgramInit(){
                                         }
                                         else
                                             cout << "\nPosicion invalida" << endl;
+                                        continuar = true;
                                         break;
                                     }
                                     case 7:
@@ -161,6 +162,7 @@ ProgramInit::ProgramInit(){
                                             cout << lista->siguiente(posicion)->toString() << endl;
                                         }else
                                             cout << "\nEl espacio siguiente esta vacio" << endl;
+                                        continuar = true;
                                         break;
                                     }
                                     case 8:
@@ -173,6 +175,7 @@ ProgramInit::ProgramInit(){
                                             cout << lista->anterior(posicion)->toString() << endl;
                                         }else
                                             cout << "\nEl espacio anterior esta vacio" << endl;
+                                        continuar = true;
                                         break;
                                     }
                                     case 9:
@@ -180,7 +183,18 @@ ProgramInit::ProgramInit(){
                                         cout << "\n9. Borrar todos los Elementos (Anula)" << endl;
                                         lista->anula();
                                         cout << "\nLista anulada correctamente" << endl;
+                                        continuar = true;
                                         break;
+                                    }
+                                    case 10:
+                                    {
+                                        continuar = false;
+                                        break;
+                                    }
+                                    default:
+                                    {
+                                        cout << "\nOpción invalida" << endl;
+                                        continuar = true;
                                     }
                                 }
 
@@ -245,6 +259,19 @@ ProgramInit::ProgramInit(){
                                     case 3:
                                     {
                                         cout << "\n3. Buscar Elemento" << endl;
+                                        cout << "\nIngrese el nombre:" << endl;
+                                        cin >> nombre;
+                                        cout << "\nIngrese la cuenta: " << endl;
+                                        cin >> cuenta;
+
+                                        Alumno* alumno = new Alumno(nombre, cuenta);
+                                        int query = lista->localiza(alumno);
+
+                                        if (query == -1)
+                                            cout << "Not found" << endl;
+                                        else
+                                            cout << "Found in pos : " << query + 1 << endl;
+
                                         break;
                                     }
                                     case 4:
