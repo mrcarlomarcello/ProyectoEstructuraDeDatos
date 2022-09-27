@@ -277,11 +277,22 @@ ProgramInit::ProgramInit(){
                                     case 4:
                                     {
                                         cout << "\n4. Borrar Elemento" << endl;
+                                        cout << "\nIngrese la posicion del elemento que desea eliminar: " << endl;
+                                        cin >> posicion;
+                                        if(lista->suprime(posicion))
+                                            cout << "\nElemento eliminado con exito" << endl;
+                                        else
+                                            cout << "\nEl elemento no se pudo eliminar" << endl;
                                         break;
                                     }
                                     case 5:
                                     {
                                         cout << "\n5. Ver si está vacía" << endl;
+                                        if(lista->vacia())
+                                            cout << "La lista esta vacía\n";
+                                        else
+                                            cout << "La lista no esta vacía\n";
+                                        continuar = true;
                                         break;
                                     }
                                     case 6:
