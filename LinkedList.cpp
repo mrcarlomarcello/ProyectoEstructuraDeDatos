@@ -114,8 +114,12 @@ bool LinkedList::suprime(int posicion){
 
 Object* LinkedList::recupera(int posicion){
     Nodo* temp = NULL;
-    if (posicion >= 1 && posicion <= n){
+    posicion -= 1;
+    if (posicion >= 0 && posicion <= n){
         temp = inicio;
+        if(posicion==0)
+            return temp->getItem();
+
         for (int i=1; i<=posicion; i++)
             temp = temp->getSiguiente();
         return temp->getItem();

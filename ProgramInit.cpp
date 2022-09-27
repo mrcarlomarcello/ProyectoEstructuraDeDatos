@@ -287,22 +287,60 @@ ProgramInit::ProgramInit(){
                                     case 6:
                                     {
                                         cout << "\n6. Obtener Elemento por Posición" << endl;
+                                        cout << "\nIngrese la posicion del elemento que desea obtener: " << endl;
+                                        cin >> posicion;
+                                        if(lista->recupera(posicion) != NULL){
+                                            cout << "\nElemento:\n";
+                                            cout << lista->recupera(posicion)->toString() << endl;
+                                        }
+                                        else
+                                            cout << "\nPosicion invalida" << endl;
+                                        continuar = true;
                                         break;
                                     }
                                     case 7:
                                     {
                                         cout << "\n7. Obtener Siguiente" << endl;
+                                        cout << "\nIngrese la posicion de un elemento para obtener su siguiente: " << endl;
+                                        cin >> posicion;
+                                        if(lista->siguiente(posicion) != NULL){
+                                            cout << "\nElemento:\n";
+                                            cout << lista->siguiente(posicion)->toString() << endl;
+                                        }else
+                                            cout << "\nEl espacio siguiente esta vacio" << endl;
+                                        continuar = true;
                                         break;
                                     }
                                     case 8:
                                     {
                                         cout << "\n8. Obtener Anterior" << endl;
+                                        cout << "\nIngrese la posicion de un elemento para obtener su anterior: " << endl;
+                                        cin >> posicion;
+                                        if(lista->anterior(posicion) != NULL){
+                                            cout << "\nElemento:\n";
+                                            cout << lista->anterior(posicion)->toString() << endl;
+                                        }else
+                                            cout << "\nEl espacio anterior esta vacio" << endl;
+                                        continuar = true;
                                         break;
                                     }
                                     case 9:
                                     {
                                         cout << "\n9. Borrar todos los Elementos (Anula)" << endl;
+                                        lista->anula();
+                                        cout << "\nLista anulada correctamente" << endl;
+                                        continuar = true;
                                         break;
+                                    }
+                                    case 10:
+                                    {
+                                        continuar = false;
+                                        break;
+                                    }
+                                    default:
+                                    {
+                                        cout << "\nOpción invalida" << endl;
+                                        continuar = true;
                                     }
                                 }
 
