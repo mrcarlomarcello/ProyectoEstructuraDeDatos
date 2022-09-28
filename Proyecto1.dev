@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;8;0;0;0
-UnitCount=31
+UnitCount=33
 
 [VersionInfo]
 Major=1
@@ -352,6 +352,26 @@ BuildCmd=
 
 [Unit31]
 FileName=LinkedStack.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit32]
+FileName=Util.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit33]
+FileName=Util.h
 CompileCpp=1
 Folder=
 Compile=1
