@@ -107,8 +107,6 @@ ProgramInit::ProgramInit(){
 
                                             }while(opciones > 2);
                                             contador = 0;
-                                            
-                                            continuar = true;
 
                                         }while(continuar);
 
@@ -390,7 +388,11 @@ ProgramInit::ProgramInit(){
 
                             }while(num != 10);
                         }
-                    }
+                    	case 4:
+                    	{
+                    		cout << "\nOpción Invalida" << endl;
+						}
+					}
                 }while(num != 3);
                 continuar = true;
 				break;
@@ -541,12 +543,11 @@ ProgramInit::ProgramInit(){
 	                    	cout << "\nOpción invalida" << endl;
 						    continuar = true;
 						}
-	                }while(continuar);
-	                continuar = true;
-	                break;
-	        	}while(continuar);
-	           		continuar = true;
-	            	break;
+					}
+
+	        	}while(num != 3);
+            	continuar = true;
+                break;
 
             case 3:
                 do{

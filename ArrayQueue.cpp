@@ -57,9 +57,9 @@ Object* ArrayQueue::saca_de_cola(){
         }
         else{
             dequeue = array[inicio];
-            array[inicio] = NULL;
-            n--;
-            inicio++;
+            //array[inicio] = NULL;
+            //inicio++;
+            //n--;
             return dequeue;
         }
     }
