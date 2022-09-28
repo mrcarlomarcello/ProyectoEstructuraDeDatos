@@ -472,7 +472,8 @@ ProgramInit::ProgramInit(){
 						            	continuar = true;
 									}   
 	                            }
-	                        }while(continuar);
+	                        }while(num != 6);
+	                        break;
                         }
                         case 2:{
                             //borra el stack
@@ -537,7 +538,8 @@ ProgramInit::ProgramInit(){
 						            	continuar = true;
 									} 	
 								}	
-	                        }while(continuar);
+	                        }while(num!=6);
+	                        break;
 	                    }
 	                    case 4:{
 	                    	cout << "\nOpción invalida" << endl;
@@ -740,11 +742,16 @@ ProgramInit::ProgramInit(){
 	                            
 	                        }while(continuar);
                         }
-                    }
+                    	case 4:{
+	                    	cout << "\nOpción invalida" << endl;
+						    continuar = true;
+						}
+					}
 
                 }while(num != 3);
             	continuar = true;
                 break;
+                
             case 4:
             {
 				continuar = false;
