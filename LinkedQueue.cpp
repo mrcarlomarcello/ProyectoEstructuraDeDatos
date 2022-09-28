@@ -34,18 +34,20 @@ void LinkedQueue::pone_en_cola(Object* item){
 
 Object* LinkedQueue::saca_de_cola(){
     Object* dequeue = NULL;
+
     if (vacia())
         return NULL;
+
     else if(inicio == final){
         dequeue = inicio->getItem();
         inicio = final = NULL;
         return dequeue;
     }else{
-        Nodo *ptr = new Nodo();
-        ptr = inicio;
+        Nodo *ptr = inicio;
         dequeue = inicio->getItem();
         inicio = inicio->getSiguiente();
-        delete(ptr);
+        //delete(ptr);
+        ptr=NULL;
         return dequeue;
     }
 }//Dequeue
