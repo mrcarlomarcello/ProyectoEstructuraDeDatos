@@ -81,29 +81,30 @@ void LinkedList::imprimir_lista(){
 }
 
 bool LinkedList::suprime(int posicion){
+
     if (posicion>=1 && posicion<=n){
         Nodo* temp = NULL;
+
         if (posicion==1){
             temp = inicio;
             inicio = inicio->getSiguiente();
             temp->setSiguiente(NULL);
             inicio->setAnterior(NULL);
-
         }else if (posicion == n){
             temp = final;
             final = final->getAnterior();
             final->setSiguiente(NULL);
             temp->setAnterior(NULL);
-
         }else{
             temp = inicio;
-            for (int i=1; i<=posicion; i++)
+            for (int i=1; i<=posicion; ++i)
                 temp=temp->getSiguiente();
             temp->getAnterior()->setSiguiente(temp->getSiguiente());
             temp->getSiguiente()->setAnterior(temp->getAnterior());
             temp->setSiguiente(NULL);
             temp->setAnterior(NULL);
         }
+
         delete temp;
         n--;
         return true;
