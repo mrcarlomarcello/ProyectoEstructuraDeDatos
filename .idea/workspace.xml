@@ -14,9 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5ec8e049-a496-441b-a561-2f5c68d54cc0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinkedList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/LinkedList.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgramInit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ProgramInit.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proyectoApp" beforeDir="false" afterPath="$PROJECT_DIR$/proyectoApp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
