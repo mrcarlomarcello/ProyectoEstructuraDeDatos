@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o ArrayList.o Object.o TDALista.o LinkedList.o Nodo.o Alumno.o Simbolo.o ProgramInit.o
-LINKOBJ  = main.o ArrayList.o Object.o TDALista.o LinkedList.o Nodo.o Alumno.o Simbolo.o ProgramInit.o
+OBJ      = main.o ArrayList.o Object.o TDALista.o LinkedList.o Nodo.o Alumno.o Simbolo.o ProgramInit.o ArrayQueue.o ArrayStack.o LinkedQueue.o LinkedStack.o TDACola.o TDAPila.o TextoMenu.o Util.o
+LINKOBJ  = main.o ArrayList.o Object.o TDALista.o LinkedList.o Nodo.o Alumno.o Simbolo.o ProgramInit.o ArrayQueue.o ArrayStack.o LinkedQueue.o LinkedStack.o TDACola.o TDAPila.o TextoMenu.o Util.o
 LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
@@ -50,3 +50,27 @@ Simbolo.o: Simbolo.cpp
 
 ProgramInit.o: ProgramInit.cpp
 	$(CPP) -c ProgramInit.cpp -o ProgramInit.o $(CXXFLAGS)
+
+ArrayQueue.o: ArrayQueue.cpp
+	$(CPP) -c ArrayQueue.cpp -o ArrayQueue.o $(CXXFLAGS)
+
+ArrayStack.o: ArrayStack.cpp
+	$(CPP) -c ArrayStack.cpp -o ArrayStack.o $(CXXFLAGS)
+
+LinkedQueue.o: LinkedQueue.cpp
+	$(CPP) -c LinkedQueue.cpp -o LinkedQueue.o $(CXXFLAGS)
+
+LinkedStack.o: LinkedStack.cpp
+	$(CPP) -c LinkedStack.cpp -o LinkedStack.o $(CXXFLAGS)
+
+TDACola.o: TDACola.cpp
+	$(CPP) -c TDACola.cpp -o TDACola.o $(CXXFLAGS)
+
+TDAPila.o: TDAPila.cpp
+	$(CPP) -c TDAPila.cpp -o TDAPila.o $(CXXFLAGS)
+
+TextoMenu.o: TextoMenu.cpp
+	$(CPP) -c TextoMenu.cpp -o TextoMenu.o $(CXXFLAGS)
+
+Util.o: Util.cpp
+	$(CPP) -c Util.cpp -o Util.o $(CXXFLAGS)

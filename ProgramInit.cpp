@@ -14,11 +14,13 @@ using namespace std;
 #include "ArrayQueue.h"
 #include "LinkedQueue.h"
 #include "TextoMenu.h"
+#include "Util.h"
 
 #include <iostream>
+
 ProgramInit::ProgramInit(){
 
-    int num;
+    int num = 0;
     TDALista* lista = NULL;
     TDAPila* arrayStack = NULL;
     TDACola* cola = NULL;
@@ -27,21 +29,35 @@ ProgramInit::ProgramInit(){
     string simbolo;
     int posicion;
     int opciones;
-    bool continuar;
+    bool continuar = true;
+    bool seguir;
     int contador = 0;
+    char menu[5];
     TextoMenu* Menu;
+    Util util;
     //prueba
     //cout << "Hello World! Compile test\n" << endl;
-
+    
     do{
         Menu->printMainMenu();
-        cin >> num;
+        cin >> menu;
+        
+        if (!util.EsUnNumero(menu) || (stoi(menu) > 9))
+			num = 5;
+		else
+			num = stoi(menu);
 
         switch(num){
             case 1:
                 do{
                     Menu->printMenuLista();
-                    cin >> num;
+                    cin >> menu;
+		
+					if (!util.EsUnNumero(menu) || (stoi(menu) > 3))
+						num = 4;
+					else
+						num = stoi(menu);
+						
                     switch(num){
                         case 1:
                         {
@@ -52,7 +68,12 @@ ProgramInit::ProgramInit(){
 
                             do{
                                 Menu->printMenuArrayList();
-                                cin >> num;
+                               cin >> menu;
+			
+								if (!util.EsUnNumero(menu) || (stoi(menu) > 10))
+									num = 11;
+								else
+									num = stoi(menu);
 
                                 switch (num){
                                     case 1:
@@ -86,6 +107,8 @@ ProgramInit::ProgramInit(){
 
                                             }while(opciones > 2);
                                             contador = 0;
+                                            
+                                            continuar = true;
 
                                         }while(continuar);
 
@@ -97,6 +120,7 @@ ProgramInit::ProgramInit(){
                                     {
                                         cout << "\n2. Imprimir Elementos" << endl;
                                         lista->imprimir_lista();
+                                        continuar = true;
                                         break;
                                     }
                                     case 3:
@@ -114,6 +138,8 @@ ProgramInit::ProgramInit(){
                                             cout << "Sí existe" << endl;
                                         else
                                             cout << "Not found" << endl;
+                                            
+                                        continuar = true;
 
                                         break;
                                     }
@@ -126,7 +152,8 @@ ProgramInit::ProgramInit(){
                                             cout << "\nElemento eliminado con exito" << endl;
                                         else
                                             cout << "\nEl elemento no se pudo eliminar" << endl;
-                                        break;
+                                        continuar = true;
+										break;
                                     }
                                     case 5:
                                     {
@@ -136,7 +163,8 @@ ProgramInit::ProgramInit(){
                                         else
                                             cout << "La lista no esta vacía\n";
                                         continuar = true;
-                                        break;
+                                        continuar = true;
+										break;
                                     }
                                     case 6:
                                     {
@@ -198,7 +226,7 @@ ProgramInit::ProgramInit(){
                                     }
                                 }
 
-                            }while(num != 10);
+                            }while(continuar);
                             break;
                         }
                         case 2:
@@ -210,7 +238,12 @@ ProgramInit::ProgramInit(){
 
                             do{
                                 Menu->printMenuLinkedList();
-                                cin >> num;
+                                cin >> menu;
+                            
+	                            if (!util.EsUnNumero(menu) || (stoi(menu) > 10))
+									num = 11;
+								else
+									num = stoi(menu);
 
                                 switch (num){
                                     case 1:
@@ -359,12 +392,19 @@ ProgramInit::ProgramInit(){
                         }
                     }
                 }while(num != 3);
-                break;
+                continuar = true;
+				break;
 
             case 2:
                 do{
                     Menu->printMenuPila();
-                    cin >> num;
+                    cin >> menu;
+                    
+                    if (!util.EsUnNumero(menu) || (stoi(menu) > 3))
+						num = 4;
+					else
+						num = stoi(menu);
+						
                     switch (num) {
                         case 1:{
                             //borra el stack
@@ -375,43 +415,62 @@ ProgramInit::ProgramInit(){
 
                             do{
                                 Menu->printMenuArrayStack();
-                                cin >> num;
+                                cin >> menu;
+                            
+	                            if (!util.EsUnNumero(menu) || (stoi(menu) > 6))
+									num = 7;
+								else
+									num = stoi(menu);
 
                                 switch (num) {
-                                    case 1:{
-                                        cout << "[     Vamos a push un simbolo a la vez     ]" << endl;
-                                        cin >> simbolo;
-                                        Simbolo* simStack = new Simbolo();
-                                        simStack->setSimbolo(simbolo[0]);
-                                        arrayStack->Push(simStack);
-                                        cout << "[ Listo, hemos agregado: " << simbolo[0] << " ] "<< endl;
-                                        break;
-                                    }
-                                    case 2:{
-                                        Object* popedItem = arrayStack->Pop();
-                                        cout << "[ Listo hemos Poped-out: " << popedItem->toString()<< " << Poped ]" << endl;
-                                        break;
-                                    }
-                                    case 3:{
-                                        cout << "[    Veamos el Tope de la pila   :    ]" << endl;
-                                        Object* sim = arrayStack->Top();
-                                        cout << "[   Tope : "<< sim->toString() << " ] "<< endl;
-                                        break;
-                                    }
-                                    case 4:{
-                                        cout << "Está Vacía?: " << endl;
-                                        string temp = arrayStack->vacia() ? "true" : "false";
-                                        cout <<  temp << endl;
-                                        break;
-                                    }
-                                    case 5:{
-                                        arrayStack->printStack();                                        
-                                        break;
-                                    }
-
-                                }
-                            }while(num != 6);
-                            break;
+	                                case 1:{
+	                                    cout << "[     Vamos a push @lgo: solo un simbolo a la vez     ]" << endl;
+	                                    cin >> simbolo;
+	                                    Simbolo* simStack = new Simbolo();
+	                                    simStack->setSimbolo(simbolo[0]);
+	                                    arrayStack->Push(simStack);
+	                                    cout << "[ Listo, hemos agregado: " << simbolo[0] << " ] "<< endl;
+	                                    continuar = true;
+										break;
+	                                }
+	                                case 2:{
+	                                    Object* popedItem = arrayStack->Pop();
+	                                    cout << "[ Listo hemos Poped-out: " << popedItem->toString()<< " << Poped ]" << endl;
+	                                    continuar = true;
+										break;
+	                                }
+	                                case 3:{
+	                                    cout << "[    Veamos el Tope de la pila   :    ]" << endl;
+	                                    Object* sim = arrayStack->Top();
+	                                    cout << "[   God it worked... este es el tope : "<< sim->toString() << " ] "<< endl;
+	                                    continuar = true;
+										break;
+	                                }
+	                                case 4:{
+	                                    cout << "yeah not done... veamos si funciona Vacía: " << endl;
+	                                    string temp = arrayStack->vacia() ? "true" : "false";
+	                                    cout <<  temp << endl;
+	                                    continuar = true;
+										break;
+	                                }
+	                                case 5:{
+	                                    arrayStack->printStack();
+	                                    cout << "falta too " << endl;
+	                                    continuar = true;
+										break;
+	                                }
+	                                case 6:
+						            {
+										continuar = false;
+						            	break;
+						            }
+						            default:
+						            {
+						            	cout << "\nOpción invalida" << endl;
+						            	continuar = true;
+									}   
+	                            }
+	                        }while(continuar);
                         }
                         case 2:{
                             //borra el stack
@@ -422,52 +481,83 @@ ProgramInit::ProgramInit(){
 
                             do{
                                 Menu->printMenuLinkedStack();
-                                cin >> num;
+                                cin >> menu;
+                            
+	                            if (!util.EsUnNumero(menu) || (stoi(menu) > 6))
+									num = 7;
+								else
+									num = stoi(menu);
 
                                 switch (num) {
-                                    case 1:{
-                                        cout << "[     Vamos a push un simbolo a la vez     ]" << endl;
-                                        cin >> simbolo;
-                                        Simbolo* simStack = new Simbolo();
-                                        simStack->setSimbolo(simbolo[0]);
-                                        arrayStack->Push(simStack);
-                                        cout << "[ Listo, hemos agregado: " << simbolo[0] << " ] "<< endl;
-                                        break;
-                                    }
-                                    case 2:{
-                                        Object* popedItem = arrayStack->Pop();
-                                        cout << "[ Listo hemos Poped-out: " << popedItem->toString()<< " << Poped ]" << endl;
-                                        break;
-                                    }
-                                    case 3:{
-                                        cout << "[    Veamos el Tope de la pila   :    ]" << endl;
-                                        Object* sim = arrayStack->Top();
-                                        cout << "[   Tope : "<< sim->toString() << " ] "<< endl;
-                                        break;
-                                    }
-                                    case 4:{
-                                        cout << "Está Vacía?: " << endl;
-                                        string temp = arrayStack->vacia() ? "true" : "false";
-                                        cout <<  temp << endl;
-                                        break;
-                                    }
-                                    case 5:{
-                                        arrayStack->printStack();                                        
-                                        break;
-                                    }
-
-                                }
-                            }while(num != 6);
-                            break;
-                        }
-                    }
-                }while(num != 3);
-                break;
+	                                case 1:{
+	                                    cout << "[     Vamos a push @lgo: solo un simbolo a la vez     ]" << endl;
+	                                    cin >> simbolo;
+	                                    Simbolo* simStack = new Simbolo();
+	                                    simStack->setSimbolo(simbolo[0]);
+	                                    arrayStack->Push(simStack);
+	                                    cout << "[ Listo, hemos agregado: " << simbolo[0] << " ] "<< endl;
+	                                    continuar = true;
+										break;
+	                                }
+	                                case 2:{
+	                                    Object* popedItem = arrayStack->Pop();
+	                                    cout << "[ Listo hemos Poped-out: " << popedItem->toString()<< " << Poped ]" << endl;
+	                                    continuar = true;
+										break;
+	                                }
+	                                case 3:{
+	                                    cout << "[    Veamos el Tope de la pila   :    ]" << endl;
+	                                    Object* sim = arrayStack->Top();
+	                                    cout << "[   God it worked... este es el tope : "<< sim->toString() << " ] "<< endl;
+	                                    continuar = true;
+										break;
+	                                }
+	                                case 4:{
+	                                    cout << "yeah not done... veamos si funciona Vacía: " << endl;
+	                                    string temp = arrayStack->vacia() ? "true" : "false";
+	                                    cout <<  temp << endl;
+	                                    continuar = true;
+	                                    break;
+	                                }
+	                                case 5:{
+	                                    arrayStack->printStack();
+	                                    continuar = true;
+	                                    break;
+	                                }
+	                                case 6:
+						            {
+										continuar = false;
+						            	break;
+						            }
+						            default:
+						            {
+						            	cout << "\nOpción invalida" << endl;
+						            	continuar = true;
+									} 	
+								}	
+	                        }while(continuar);
+	                    }
+	                    case 4:{
+	                    	cout << "\nOpción invalida" << endl;
+						    continuar = true;
+						}
+	                }while(continuar);
+	                continuar = true;
+	                break;
+	        	}while(continuar);
+	           		continuar = true;
+	            	break;
 
             case 3:
                 do{
                     Menu->printMenuCola();
-                    cin >> num;
+                    cin >> menu;
+                    
+                    if (!util.EsUnNumero(menu) || (stoi(menu) > 3))
+						num = 4;
+					else
+						num = stoi(menu);
+                    
                     switch(num){
                         case 1:{
 
@@ -478,7 +568,12 @@ ProgramInit::ProgramInit(){
 
                             do{
                                 Menu->printMenuArrayQueue();
-                                cin >> num;
+                                cin >> menu;
+                                
+                                if (!util.EsUnNumero(menu) || (stoi(menu) > 6))
+									num = 7;
+								else
+									num = stoi(menu);
 
                                 switch (num){
                                     case 1:
@@ -492,6 +587,7 @@ ProgramInit::ProgramInit(){
                                         cin >> cuenta;
                                         Alumno* alumno = new Alumno(nombre, cuenta);
                                         cola->pone_en_cola(alumno);
+                                        continuar = true;
 
                                         break;
                                     }
@@ -506,6 +602,8 @@ ProgramInit::ProgramInit(){
                                             cout << Sdequeue << endl;
                                         else
                                             cout << "\nCola Vacia\n";
+                                            
+                                        continuar = true;
                                         break;
                                     }
                                     case 3:
@@ -515,7 +613,8 @@ ProgramInit::ProgramInit(){
                                             cout << cola->frente()->toString() << endl;
                                         else
                                             cout << "\nCola Vacia\n";
-                                        break;
+                                        continuar = true;
+										break;
                                     }
 
                                     case 4:
@@ -525,13 +624,15 @@ ProgramInit::ProgramInit(){
                                             cout << "La cola esta vacía\n";
                                         else
                                             cout << "La cola no esta vacía\n";
-                                        break;
+                                        continuar = true;
+										break;
                                     }
 
                                     case 5:
                                     {
                                         cout << "\n5. Imprimir elementos" << endl;
                                         cola->imprime_cola();
+                                        continuar = true;
                                         break;
                                     }
                                     case 6:
@@ -546,7 +647,7 @@ ProgramInit::ProgramInit(){
                                     }
                                 }
 
-                            }while(num != 6);
+                            }while(continuar);
                             break;
                         }
                         case 2:{
@@ -557,82 +658,103 @@ ProgramInit::ProgramInit(){
                             cola = new LinkedQueue();
 
                             do{
-                                Menu->printMenuLinkedQueue();
-                                cin >> num;
-
-                                switch (num){
-                                    case 1:
-                                    {
-                                        cout << "\n1. Encolar (queue)" << endl;
-
-                                        cout << "\n1. Insertar Elemento" << endl;
-                                        cout << "\nIngrese el nombre:" << endl;
-                                        cin >> nombre;
-                                        cout << "\nIngrese la cuenta: " << endl;
-                                        cin >> cuenta;
-                                        Alumno* alumno = new Alumno(nombre, cuenta);
-                                        cola->pone_en_cola(alumno);
-
-                                        break;
-                                    }
-                                    case 2:
-                                    {
-                                        cout << "\n2. Desencolar (dequeue)" << endl;
-
-                                        Object* dequeue = cola->saca_de_cola();
-                                        string Sdequeue = dequeue->toString();
-
-                                        if (dequeue != NULL)
-                                            cout << Sdequeue << endl;
-                                        else
-                                            cout << "\nCola Vacia\n";
-                                        break;
-                                    }
-                                    case 3:
-                                    {
-                                        cout << "\n3. Ver Frente (peek)" << endl;
-                                        if (cola->frente() != NULL)
-                                            cout << cola->frente()->toString() << endl;
-                                        else
-                                            cout << "\nCola Vacia\n";
-                                        break;
-                                    }
-
-                                    case 4:
-                                    {
-                                        cout << "\n4. Verificar si está vacía" << endl;
-                                        if(cola->vacia())
-                                            cout << "La cola esta vacía\n";
-                                        else
-                                            cout << "La cola no esta vacía\n";
-                                        break;
-                                    }
-
-                                    case 5:
-                                    {
-                                        cout << "\n5. Imprimir elementos" << endl;
-                                        cola->imprime_cola();
-                                        break;
-                                    }
-                                    case 6:
-                                    {
-                                        continuar = false;
-                                        break;
-                                    }
-                                    default:
-                                    {
-                                        cout << "\nOpción invalida" << endl;
-                                        continuar = true;
-                                    }
-                                }
-
-                            }while(num != 6);
+	                            Menu->printMenuLinkedQueue();
+	                            cin >> menu;
+			
+								if (!util.EsUnNumero(menu) || (stoi(menu) > 6))
+									num = 7;
+								else
+									num = stoi(menu);
+									
+	                             switch (num){
+	                                case 1:
+	                                {
+	                                    cout << "\n1. Encolar (queue)" << endl;
+	                                
+	                                	cout << "\n1. Insertar Elemento" << endl;
+		                                cout << "\nIngrese el nombre:" << endl;
+		                                cin >> nombre;
+		                                cout << "\nIngrese la cuenta: " << endl;
+		                                cin >> cuenta;
+		                                Alumno* alumno = new Alumno(nombre, cuenta);
+		                                cola->pone_en_cola(alumno);
+										continuar = true;
+										break;
+	                                }
+	                                case 2:
+	                                {
+	                                    cout << "\n2. Desencolar (dequeue)" << endl;
+	                                    
+	                                    Object* dequeue = cola->saca_de_cola();
+	                                    string Sdequeue = dequeue->toString();
+	                                    
+	                                    if (dequeue != NULL)
+	                                    	cout << Sdequeue << endl;
+	                                    else
+	                                    	cout << "\nCola Vacia\n";
+	                                    
+	                                    continuar = true;
+	                                    break;
+	                                }
+	                                case 3:
+	                                {
+	                                    cout << "\n3. Ver Frente (peek)" << endl;
+	                                    if (cola->frente() != NULL)
+	                                    	cout << cola->frente()->toString() << endl;
+	                                    else
+	                                    	cout << "\nCola Vacia\n";
+	                                	continuar = true;
+	                                    break;
+	                                }
+	
+	                                case 4:
+	                                {
+	                                    cout << "\n4. Verificar si está vacía" << endl;
+	                                    if(cola->vacia())
+	                                    	cout << "La cola esta vacía\n";
+	                                    else
+	                                    	cout << "La cola no esta vacía\n";
+	                                    continuar = true;
+	                                    break;
+	                                }
+	
+	                                case 5:
+	                                {
+	                                    cout << "\n5. Imprimir elementos" << endl;
+	                                    cola->imprime_cola();
+	                                    continuar = true;
+	                                    break;
+	                                }
+	                                case 6:
+						            {
+										continuar = false;
+						            	break;
+						            }
+						            default:
+						            {
+						            	cout << "\nOpción invalida" << endl;
+						            	continuar = true;
+									} 
+	                            }
+	                            
+	                        }while(continuar);
                         }
                     }
 
                 }while(num != 3);
+            	continuar = true;
                 break;
+            case 4:
+            {
+				continuar = false;
+            	break;
+            }
+            default:
+            {
+            	cout << "\nOpción invalida" << endl;
+			} 
         }
 
-    }while(num != 4);
+    }while(continuar);
+		
 };
