@@ -30,13 +30,11 @@ ProgramInit::ProgramInit(){
     int posicion;
     int opciones;
     bool continuar = true;
-    bool seguir;
+    //bool seguir;
     int contador = 0;
     char menu[5];
     TextoMenu* Menu;
     Util util;
-    //prueba
-    //cout << "Hello World! Compile test\n" << endl;
     
     do{
         Menu->printMainMenu();
@@ -48,7 +46,7 @@ ProgramInit::ProgramInit(){
 			num = stoi(menu);
 
         switch(num) {
-            case 1:
+            case 1: {
                 do {
                     Menu->printMenuLista();
                     cin >> menu;
@@ -373,8 +371,9 @@ ProgramInit::ProgramInit(){
                 } while (num != 3);
                 continuar = true;
                 break;
+            }
 
-            case 2:
+            case 2: {
                 do {
                     Menu->printMenuPila();
                     cin >> menu;
@@ -527,8 +526,9 @@ ProgramInit::ProgramInit(){
                 } while (num != 3);
                 continuar = true;
                 break;
+            }
 
-            case 3:
+            case 3: {
                 do {
                     Menu->printMenuCola();
                     cin >> menu;
@@ -710,6 +710,7 @@ ProgramInit::ProgramInit(){
                 } while (num != 3);
                 continuar = true;
                 break;
+            }
 
             case 4:{
                 continuar = false;
