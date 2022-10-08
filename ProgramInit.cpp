@@ -46,6 +46,7 @@ ProgramInit::ProgramInit(){
 			num = stoi(menu);
 
         switch(num) {
+
             case 1: {
                 do {
                     Menu->printMenuLista();
@@ -211,7 +212,7 @@ ProgramInit::ProgramInit(){
                                     }
                                 }
 
-                            } while (continuar);
+                            } while (num != 10);
                             break;
                         }
                         case 2: {
