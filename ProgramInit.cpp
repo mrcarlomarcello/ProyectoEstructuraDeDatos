@@ -36,7 +36,8 @@ ProgramInit::ProgramInit(){
     TextoMenu* Menu;
     Util util;
     
-    do{
+    do
+    {
         Menu->printMainMenu();
         cin >> menu;
         
@@ -721,7 +722,8 @@ ProgramInit::ProgramInit(){
             default:
             {
             	cout << "\nOpción invalida" << endl;
-			} 
+			}
+
         }
 
     }while(continuar);
