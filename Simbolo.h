@@ -13,7 +13,7 @@ class Simbolo : public Object
                 Simbolo();
                 ~Simbolo();
 
-                        virtual bool equals(Object*);
+                virtual bool equals(Object*);
                 virtual string toString();
                 virtual void setSimbolo(char);
                 virtual char getSimbolo();
